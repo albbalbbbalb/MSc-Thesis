@@ -1,2 +1,16 @@
 \subsection{Perturbations of linear motion}
 
+Recall, that a particle in the plane moves along Larmor circles when in the presence of a uniform magnetic field, with strength $b$, orthogonal to the plane of motion. The Larmor radius $R$ depends inversely with respect to the field strength, $Rb\varpropto 1$, that is, a weaker the field strength corresponds to a larger Larmor radius. So, as $b\to 0$, we expect $R\to\infty$, which means that locally the trajectory approaches linear motion in the plane. This intuition is coroborated when considering the Hamiltonian \eqref{eq:uniformmagneticfieldHamiltonian} and setting $\varepsilon=0$. Hence, it is natural to consider the Hamiltonian $H_0(q,p)=\|p\|^2/2$ and study perturbations of it via KAM
+
+We readily see that $H_0$ is real analytic, it is already in action-angle coordinates from which we can deduce it is non-degenerate $\det \partial_p^2 H_0=1\neq0$, and the frequency map $\partial_p H_0(p) = p$ is a diffeomorphism. Now, recall the Hamiltonian \eqref{eq:magnetichamiltonian2} with $A(q) = (-b(q_2\text{ mod }1),0,0)\one_S$ where $S$ is the set of disks in the plane, and attempt to isolate the perturbation term from the linear motion.
+\begin{align*}
+H(q,p) = \frac{1}{2}\left\|p-A(q)\right\|^2
+  &= \frac{1}{2}\left(p_1+b(q_2\text{ mod }1)\one_S\right)^2 + \frac{1}{2}p_2^2\\
+  &= \frac{1}{2}\left(p_1^2+2p_1b(q_2\text{ mod }1)\one_S+b^2(q_2^2\text{ mod }1)\one_S^2\right) + \frac{1}{2}p_2^2\\
+  &= \frac{\|p\|^2}{2} + b\frac{(q_2\text{ mod }1)}{2}\left(2p_1\one_S+b(q_2\text{ mod }1)\one_S^2\right)\\
+  &= \frac{\|p\|^2}{2} + b\frac{(q_2\text{ mod }1)}{2}\left(2p_1+b(q_2\text{ mod }1)\right)\one_S\\
+  &= H_0(q,p) + bH_1(q,p,b)
+\end{align*}
+where we used $\one_S^2=\one_S$ for indicator functions. We see now explicitly the perturbation $H_1$. As previously discussed, $H_1$ is discontinuous on $\mathbb R^2$, and to apply KAM, we need to mollify $H_1$. Hence, consider the standard mollifier $\varphi_\varepsilon(q,p)=\varphi_\varepsilon(x):\mathbb R^2\to\mathbb R$ and let $\hat H_1 = \varphi_\varepsilon*H_1$, notice that we do not mollify with respect to the parameter $b$.
+
+Now, $\hat H=H_0+b \hat H_1$. Recalling \Cref{thm:KAM} we need $\hat H$ to be at least of class $C^{\alpha\lambda+\lambda+\tau}$ with $\lambda > \tau +1 >n=2$ and $\alpha>1$. Since $\hat H$ is smooth, we can choose any $\tau>1$, and \Cref{thm:KAM} guarantees for sufficiently small $\gamma>0$, there exists a $\delta>0$ such that for field strengths $b$ with $|b|<\gamma^2\delta$ we can preserve the invariant tori with frequencies in $\Omega_\gamma$.

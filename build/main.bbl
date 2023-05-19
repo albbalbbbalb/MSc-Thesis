@@ -1,5 +1,11 @@
 \begin{thebibliography}{Kna18}
 
+\bibitem[Eva98]{Evans_1998}
+Lawrence~C. Evans.
+\newblock {\em Partial Differential Equations}.
+\newblock American Mathematics Society, 1998.
+\newblock Providence, RI.
+
 \bibitem[Gas21]{Gasiorek_2021}
 Sean Gasiorek.
 \newblock On the dynamics of inverse magnetic billiards.

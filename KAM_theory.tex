@@ -14,25 +14,70 @@ H(q,p) = H^0(p) + \varepsilon H^1(q,p),
 \end{align*}
 where $1\gg\varepsilon>0$ is considered small, $H^0$ is the integrable part and $H^1$ is the perturbation. We assume that $H$ is $2\pi$-periodic in each component of $q$. What KAM theory ensures is that under the correct conditions, a ``large'' subset $\Omega_{\gamma,\tau}\subseteq\Omega$, $\gamma,\tau>0$ of invariant tori of $H^0(p)$ are preserved, though possibly deformed, under the perturbation $H^1$. The set $\Omega_{\gamma,\tau}$ is given by:
 \begin{align}\label{eq:smalldivisorcondition}
-\Omega_{\gamma,\tau} = \left\{ 0\neq k\in \mathbb Z^n :
-|\omega \cdot k| \ge \gamma|k|^{-\tau}\right\}.
+\Omega_{\gamma,\tau} = \left\{ \omega\in\Omega :
+|\omega \cdot k| \ge \gamma|k|^{-\tau}, 0\neq k\in \mathbb Z^n \right\}.\\ \text{\color{red} make sure you understand the Cantor set construction on page 134\color{black}}
 \end{align}
-The condition for $\Omega_{\gamma,\tau}$ is called the \textit{small divisor condition}, and for the right choice of $\gamma$ and $\tau$ it can be shown that $\Omega_{\gamma,\tau}$ is dense in $\Omega$, justifying the term ``large''. We can now give the KAM theorem as stated in \cite{poschel82}.
+The condition for $\Omega_{\gamma,\tau}$ is called the \textit{small divisor condition}. It can be shown that for $\tau>n-1$ almost all points in $\mathbb R^n$ satisfy such a condition for the right choice of $\gamma$, so we can find such points in $\Omega$ as well. In the statement of the theorem we will see that $\gamma$ cannot be varied and must be fixed, since it comes in as a constant in the bound on the size of the perturbation, so we consider the \textit{Cantor} set 
+\begin{align*}
+\Omega_\gamma=\{\omega\in\Omega: d(\omega,\partial\Omega)\ge\gamma\}\cap\left(\bigcup_{\tau>n-1}\Omega_{\gamma,\tau}\right).
+\end{align*}
 
-\begin{theorem}
+We see $\Omega\backslash \bigcup_{\gamma>0}\Omega_\gamma$ is a set of measure zero, so the measure of $\Omega_\gamma$ becomes large for small $\gamma$ ,justifying the term ``large''. We can now give the KAM theorem as stated in \cite{poschel82}.
+
+\begin{theorem}\label{thm:KAM}
 Let the integrable Hamiltonian $H^0:\mathbb T^n\times I\to\mathbb R$ be real analytic and non-degenerate, such that the frequency map $\partial_p H^0:I\to\Omega$ is a diffeomorphism and let the perturbed Hamiltonian $H=H^0+\varepsilon H^1$ be of class $C^{\alpha\lambda+\lambda+\tau}$ with $\lambda>\tau+1>n$ and $\alpha>1$. Then there exists a positive $\gamma$-independent $\delta$ such that for $|\varepsilon|<\gamma^2\delta$ with $\gamma$ sufficiently small, there exists a diffeomorphism
 \begin{align*}
 \mathcal T: \mathbb T^n\times\Omega \to\mathbb T^n\times I,
 \end{align*} 
-which on $\mathbb T^n\times\Omega_{\gamma,\tau}$ transforms the equations of motion of $H$ into
+which on $\mathbb T^n\times\Omega_\gamma$ transforms the equations of motion of $H$ into
 \begin{align*}
 \dot \theta=\omega,\qquad \dot\omega=0.
 \end{align*}
 The map $\mathcal T$ is of class $C^\alpha$ for non-integer $\alpha$ and close to the inverse of the frequency map; its Jacobian determinant is uniformly bounded from above and below.
 
-In addition, if $H$ is of class $C^{\beta\lambda+\lambda+\tau}$ with $\alpha\le\beta\le\infty$, then one can modify $\mathcal T$ outside $\mathbb T^n\times\Omega_{\gamma,\tau}$ so that $\mathcal T$ is of class $C^\beta$ for noninteger $\beta$.
+In addition, if $H$ is of class $C^{\beta\lambda+\lambda+\tau}$ with $\alpha\le\beta\le\infty$, then one can modify $\mathcal T$ outside $\mathbb T^n\times\Omega_\gamma$ so that $\mathcal T$ is of class $C^\beta$ for noninteger $\beta$.
 \end{theorem}
 
-So, for each $\omega\in\Omega_{\gamma,\tau}$, we can compute a solution $\theta:[0,\infty)\to\mathbb T^n$ of the transformed system, then using the map $\mathcal T$ we can parametrize an invariant torus via $t\to \mathcal T(\theta(t),\omega)$, \color{red} I tried to figure out what Poschel meant here and rewrite using different notation, needs to be checked \color{black} and this parametrization is differentiable in $\omega$.
+So, for $\omega\in\Omega_\gamma$, we can parametrize an invariant torus via the map $\theta\mapsto\mathcal T(\theta,\omega)$. There are a few theorems in use now that are titled the \textit{KAM theorem}, and they differ mainly whether they discuss analytic or smooth perturbations. It is easier to find sources discussing the analytic versions, since they provide stronger results about the invariant torii. Having said this, we use the $C^r$ version because it is easier to construct smooth approximations of discontinuous functions as opposed to analytically approximating them.
 
-There are a few theorems in use now that are titled the \textit{KAM theorem}, and they differ mainly whether they discuss analytic or smooth perturbations. It is easier to find sources discussing the analytic versions, since they provide stronger results about the invariant torii. Having said this, we use the $C^r$ version because it is easier to construct smooth approximations of discontinuous functions as opposed to analytically approximating them.
+The Hamiltonian \eqref{eq:magnetichamiltonian2} we wish to study is discontinuous, which by itself is not suitable for the KAM theorem. We can, however, smoothly approximate the Hamiltonian by using \textit{mollifiers}. The \textit{standard mollifier} $\varphi:\mathbb R^n\to\mathbb R$ is the following function:
+\begin{align*}
+\varphi(x) = \left\{\begin{array}{ll}
+c\exp\left(\frac{1}{|x|^2-1}\right), & |x| <1\\
+0, & |x|\ge 1,
+\end{array}
+\right.
+\end{align*}
+where $c>0$ is a scaling factor chosen so that the integral of $\varphi$ over $\mathbb R^n$ is 1. Also, $\varphi$ is commonly called a \textit{bump} function, since its support is compact. For $\varepsilon>0$, let
+\begin{align*}
+\varphi_\varepsilon(x) = \frac{1}{\varepsilon^2}\varphi\left(\frac{x}{\varepsilon}\right),
+\end{align*} 
+this function has the following properties:
+\begin{align*}
+\varphi_\varepsilon\in C_c^\infty(\mathbb R^n),\quad
+\varphi\ge 0,\quad
+\int_{\mathbb R^n}\varphi =1,\quad
+\text{supp}(\varphi_\varepsilon)\subset B_\varepsilon(0)=\{x\in\mathbb R^n:|x|<\varepsilon\},
+\end{align*}
+that is, the function $\varphi_\varepsilon$ is smooth in $\mathbb R^n$ with compact support, it is positive, its integral is 1, and the support of $\varphi_\varepsilon$ is fully contained in the unit ball of radius $\varepsilon>0$ centered at the origin.
+  
+Let $f\in L_{\text{loc}}^1(X)$ be a locally integrable function in $X \subseteq\mathbb R^n$. The \textit{mollification} of $f$ is defined as the convolution of $f$ with $\varphi_\varepsilon$, that is, $\varphi_\varepsilon*f:X_\varepsilon\to\mathbb R$ where $X_\varepsilon=\{x\in X: d(x,\partial X)>\varepsilon\}$. Explicitly,
+\begin{align*}
+f_\varepsilon(x) = \big(\varphi_\varepsilon * f\big)(x) = \int_X\varphi_\varepsilon(x-y)f(y)dy = \int_{B_\varepsilon(0)}\varphi_\varepsilon(y)f(x-y)dy,\quad x\in X_\varepsilon
+\end{align*}
+
+Some properties that the mollification $f_\varepsilon$ has are summarized here:
+\begin{theorem}\label{thm:mollification}
+Let $f\in L_{\text{loc}}^1(X)$. Then the mollification $f_\varepsilon$ has the following properties:
+\begin{enumerate}
+\item $f_\varepsilon\in C^\infty)(X_\varepsilon)$,
+\item $f_\varepsilon\to f$ almost everywhere as $\varepsilon\to0$,
+\item if $f$ is continuous on $X$, then $f_\varepsilon\to f$ as $\varepsilon\to0$ uniformly on compact subsebts of $X$,
+\item if $1\le p <\infty$ and $f\in L_{\text{loc}}^p(X)$, then $f_\varepsilon\to f$ as $\varepsilon\to 0$ in $L_{\text{loc}}^p(X)$
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The proof of this theorem can be found in Appendix C of \cite{Evans_1998}
+\end{proof}
+
+What we gain from \Cref{thm:mollification} is not only a smooth approximation of our discontinuous Hamiltonian but an approximation that can be made arbitrarily precise almost everywhere. Of course, the points which cannot be approximated accurately are concentrated at the boundary of each disk, where the discontinuities lie. Despite this, it is reasonable to assume that for sufficiently small values of $\varepsilon$, the flow of the equations of motion provided by the mollified Hamiltonian approximate very well the flow of the disconitinuous one.
