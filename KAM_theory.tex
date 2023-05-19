@@ -1,0 +1,38 @@
+
+We begin by recalling Kolmogorov-Arnold-Moser (KAM) theory, state one of the main KAM theorems, and briefly outline the main points of the theory before delving into its application. We refer the reader to \cite{Knauf_2018} and \cite{Seri_2022} for a more detailed account. We strongly recommend \cite{poschel82} for reference, as it is the version of KAM we use here. 
+
+
+KAM theory is a method for studying perturbations of integrable Hamiltonian systems. Its origins lie in Celestial and Hamiltonian mechanics, where it was used to study the orbits of planets. Hamiltonian mechanics is a strong tool for modeling and studying systems, however it is strongest for conservative systems. Naturally, we find in practice many non-conservative systems, or conservative ones that are too complicated in full, in which case a smaller subsystem is modeled and the rest is viewed as a perturbation. We are interested in the second scenario, we denote by $H^0(q,p)$ an integrable Hamiltonian and by $H^1(q,p,\varepsilon)$ a perturbation. 
+
+Focusing on the integrable case, it is known by the Liouville-Arnold theorem that there exist \textit{action-angle} coordinates so that $H^0:=H^0(p)$ can be expressed in terms of the action variable only. The equations of motion in action-angle coordinates are given by:
+\begin{align*}
+\dot q = \omega, \qquad \dot p = 0,
+\end{align*}
+where $\omega = \partial_pH^0(p)$ and $\partial_p H^0:I\to\Omega$ is the so-called \textit{frequency map}. In these action-angle coordinates, the phase space becomes $\mathbb T^n\times I$ where $I\subseteq\mathbb R^n$ and the dynamics of the system are completely expressed as rotations on the torus. Specifically, phase space is foliated into a family of invariant tori $\mathbb T^n\times\{p\}$ for each $p\in I\subseteq \mathbb R^n$. We consider only integrable Hamiltonians with a \textit{non-degenerate} frequency map, that is, $\det\partial_p^2 H^0\neq 0$. Now, KAM deals with Hamiltonians of the form
+\begin{align*}
+H(q,p) = H^0(p) + \varepsilon H^1(q,p),
+\end{align*}
+where $1\gg\varepsilon>0$ is considered small, $H^0$ is the integrable part and $H^1$ is the perturbation. We assume that $H$ is $2\pi$-periodic in each component of $q$. What KAM theory ensures is that under the correct conditions, a ``large'' subset $\Omega_{\gamma,\tau}\subseteq\Omega$, $\gamma,\tau>0$ of invariant tori of $H^0(p)$ are preserved, though possibly deformed, under the perturbation $H^1$. The set $\Omega_{\gamma,\tau}$ is given by:
+\begin{align}\label{eq:smalldivisorcondition}
+\Omega_{\gamma,\tau} = \left\{ 0\neq k\in \mathbb Z^n :
+|\omega \cdot k| \ge \gamma|k|^{-\tau}\right\}.
+\end{align}
+The condition for $\Omega_{\gamma,\tau}$ is called the \textit{small divisor condition}, and for the right choice of $\gamma$ and $\tau$ it can be shown that $\Omega_{\gamma,\tau}$ is dense in $\Omega$, justifying the term ``large''. We can now give the KAM theorem as stated in \cite{poschel82}.
+
+\begin{theorem}
+Let the integrable Hamiltonian $H^0:\mathbb T^n\times I\to\mathbb R$ be real analytic and non-degenerate, such that the frequency map $\partial_p H^0:I\to\Omega$ is a diffeomorphism and let the perturbed Hamiltonian $H=H^0+\varepsilon H^1$ be of class $C^{\alpha\lambda+\lambda+\tau}$ with $\lambda>\tau+1>n$ and $\alpha>1$. Then there exists a positive $\gamma$-independent $\delta$ such that for $|\varepsilon|<\gamma^2\delta$ with $\gamma$ sufficiently small, there exists a diffeomorphism
+\begin{align*}
+\mathcal T: \mathbb T^n\times\Omega \to\mathbb T^n\times I,
+\end{align*} 
+which on $\mathbb T^n\times\Omega_{\gamma,\tau}$ transforms the equations of motion of $H$ into
+\begin{align*}
+\dot \theta=\omega,\qquad \dot\omega=0.
+\end{align*}
+The map $\mathcal T$ is of class $C^\alpha$ for non-integer $\alpha$ and close to the inverse of the frequency map; its Jacobian determinant is uniformly bounded from above and below.
+
+In addition, if $H$ is of class $C^{\beta\lambda+\lambda+\tau}$ with $\alpha\le\beta\le\infty$, then one can modify $\mathcal T$ outside $\mathbb T^n\times\Omega_{\gamma,\tau}$ so that $\mathcal T$ is of class $C^\beta$ for noninteger $\beta$.
+\end{theorem}
+
+So, for each $\omega\in\Omega_{\gamma,\tau}$, we can compute a solution $\theta:[0,\infty)\to\mathbb T^n$ of the transformed system, then using the map $\mathcal T$ we can parametrize an invariant torus via $t\to \mathcal T(\theta(t),\omega)$, \color{red} I tried to figure out what Poschel meant here and rewrite using different notation, needs to be checked \color{black} and this parametrization is differentiable in $\omega$.
+
+There are a few theorems in use now that are titled the \textit{KAM theorem}, and they differ mainly whether they discuss analytic or smooth perturbations. It is easier to find sources discussing the analytic versions, since they provide stronger results about the invariant torii. Having said this, we use the $C^r$ version because it is easier to construct smooth approximations of discontinuous functions as opposed to analytically approximating them.

@@ -1,0 +1,50 @@
+\subsection{Setting up the problem}
+
+
+We would like to study the dynamics of a particle in $\mathbb R^2$ in the presence of disjoint regions with a uniform magnetic field. For this we must recall the Hamiltonian $H:\mathbb R^{3\times3}\to\mathbb R$ describing motion in a magnetic field:
+\begin{align*}
+H(x,p)=\frac{1}{2m}\left\|p-\frac{e}{c}A(x)\right\|^2 + U(x)
+\end{align*}
+where $x=(x_1,x_2,x_3)$ and $p=(p_1,p_2,p_3)$ are the position and momentum of the particle, respectively, $m,e,c>0$ are physical parameters, $U$ is a potential function, and $A:\mathbb R^3\to\mathbb R^3$ is the magnetic vector potential. For simplicity, we normalize $m,e,c=1$, and set $U(x)=0$ for all $x\in \mathbb R^3$. Lastly, we choose the magnetic potential to be: $A(x_1,x_2,x_3) = (-bx_2,0,0)$ for $b>0$, which describes a uniform magentic field with strength $b$, pointing in the $x_3$-direction, i.e.,  $B=\nabla\times A=(0,0,b)$.
+
+Further, we restrict the motion in the $(x_1,x_2)$-plane, this forces $p_3=0$, and the Hamiltonian can be simplified as follows:
+\begin{align*}
+H(x,p) =
+\frac{1}{2}(p_1+bx_2)^2+\frac{1}{2}p_2^2,
+\end{align*}
+From $H$, we find Hamilton's equations:
+\begin{align*}
+\frac{dx_1}{dt} &= 2(p_1+bx_2)\\
+\frac{dp_1}{dt} &=0\\
+\frac{dx_2}{dt} &= 2p_2\\
+\frac{dp_2}{dt} &=-2b(p_1+bx_2).
+\end{align*}
+And we can find the equations of motion: $X(t) = (x_1(t),x_2(t))$ with
+\begin{align*}
+x_1(t) = \frac{\alpha}{b}- R\cos(bt+\varphi),\qquad 
+x_2(t) = -\frac{\beta}{b}+ R\sin(bt+\varphi)
+\end{align*}
+where $\alpha,\beta,R,\psi$ are integration constants. These can be computed explicitly:
+\begin{align*}
+\alpha &= bx_1(0)+x_2'(0)\\
+\beta &= -bx_2(0)+x_1'(0)\\
+R &= \frac{1}{b}\|X'(0)\|\\
+\varphi &= \arctan2(x'(0),y'(0))
+\end{align*}
+where $\text{arctan2}$ refers to a definition of arctan that accurately places angles in all quadrants of the unit circle. From the equations of motion, we see that particles will travel along segments of circles, of which the radius and center are determined uniquely by the initial conditions of the particle. This circle is called a \textit{Larmor} circle, and its radius is called the \textit{Larmor} radius.
+
+Above, we discussed the motion for a uniform field in $\mathbb R^2$. Now, consider a uniform magnetic field vanishing outside a compact region $S$, where outside $S$ the motions of a particle is governed by $H_1(x,p)=\|p\|^2/2$. We see that the motion of a particle is determined piecewise: outside $S$, a particle travels along a line, and if the particle enters $S$, it travels along an arc of the Larmor circle until it leaves $S$. We immediately notice an issue if the particle crosses the boundary of $S$ tangentially, in which case the equations of motion are not defined uniquely. Specifically, this is an issue if the Larmor circle is contained within $S$. So, upon entering $S$ tangentially, the particle may leave immediately or stay within $S$ for an arbitrarily large number of turns around the Larmor circle. For our choice of $S$, this situation occurs for a negligble set of initial conditions, so we ignore it.
+
+
+With $B_r(q)\subset \mathbb R^2$ denote the closed ball of radius $r>0$ centered at $q\in\mathbb R^2$. Pick $S=\cup_{N\in\mathbb Z^2}B_{1/3}(N-1/2)$, that is, $S$ is the union of closed balls of radius $1/3$ centered at points of the form $(n-1/2,m-1/2)$ for $n,m\in\mathbb Z$.
+
+The choice of radius $r=1/3$ is arbitrary, we fix it for convenience. Furthermore, we notice the speed of the particle is constant, since $\|X'(0)\|=Rb$, so again for simplicity we fix $\|X'(0)\|=1$. This also fixes the Larmor radius $R=1/b$. A different choice of $r\in (0,1/2)$ and $\|X'(0)\|\in(0,\infty)$ clearly gives rise to different dynamics, however we make the assumption that the dynamics will not differ \textit{qualitatively}, i.e., in any case we expect to find periodic orbits, chaotic behavior, and the methods we use for studying these are still valid.
+
+Hence, we study the influence of varying the parameter $b>0$ on the above defined system. What we see is four ranges of behavior:
+\begin{enumerate}
+\item For values $b\approx0$ we can approximate the dynamics as a perturbation of a system with no magnetic field at all,
+\item For a range of ``small'' values of $b$, the dynamics are similar to that of a uniform field in $\mathbb R^2$,
+\item there is an intermediate range where both stable and unstable periodic dynamics occur
+\item there exists a value $b_t$, such that all values $b>b_t$ give rise to unstable dynamics.
+\end{enumerate}
+

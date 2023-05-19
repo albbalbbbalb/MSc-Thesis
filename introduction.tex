@@ -1,0 +1,47 @@
+
+Our main point of interest is the long term dynamics of a particle in the presence of a magnetic field, specifically, we consider the case of a magnetic billiard. Similar work has been done in \cite{Knauf_2017}, where the focus was scattering for finitely many \textit{bumps}, and \cite{Gasiorek_2021} where many non-trivial periodic orbits were found for ``inverted'' bumps, that is, the magnetic field only vanished on the bumps. We follow in the same vein but consider infinitely many bumps in a lattice, and describe the dynamics using various methods.
+
+\subsection{The electromagnetic field Hamiltonian}
+
+Classically, the trajectory of a particle in $\mathbb R^3$ in the presence of a magnetic field is described by the solutions of the Hamiltonian:
+
+\begin{align*}
+H(q,p) = \frac{1}{2m}\left\|p - \frac{e}{c}A(q)\right\|^2 + U(q)
+\end{align*}
+where $q=(q_1,q_2,q_3)$ and $p=(p_1,p_2,p_3)$ are the position and momentum, $m,e,c>0$ are physical parameters, $U:\mathbb R^3\to\mathbb R$ is a potential function, and $A:\mathbb R^3\to\mathbb R^3$ is a magnetic vector field. For our purposes, we can absorb the physical parameters into the momentum variable and the vector field, effectively, we set $m=e=c=1$, and we focus on the case $U(q)=0$ for simplicity. Hence, we study solutions of
+\begin{align}\label{eq:magnetichamiltonian}
+H(q,p) = \frac{1}{2}\left\|p - A(q)\right\|^2,
+\end{align}
+where $A$ is still to be prescribed. The equations of motion are given by the system:
+\begin{subequations}
+\label{eq:magnetichamiltonianequations}
+\begin{align}
+\dot q_i &= \frac{\partial H(q,p)}{\partial p_i} = p_i - A_i(q) \label{subeq:maghameqpos}\\
+\dot p_i &= -\frac{\partial H(q,p)}{\partial q_i} = -\sum_{k=1}^3 \Big(p_i - A_i(q)\Big)\frac{\partial A_k}{\partial q_i}\label{subeq:maghammom}
+\end{align}
+\end{subequations}
+where $A_k(q)$ denotes the $k$-th component of $A$. To further limit the breadth of study, we consider some restrictions on $A$. First, we consider only motion in the $(q_1,q_2)$-plane, so only trajectories that have initial condition $q=(q_1,q_2,0)$ and $p=(p_1,p_2,0)$, and that satisfy $q_3(t)=p_3(t)=0$ for all $t\ge0$. For this to be satisfied, we need that $\dot q_3 = p_3-A_3(q)=0$, which also implies that $A_3(q)=0$ for all $t\ge 0$. We also need $\dot p_3 = 0$, which means that 
+\begin{align*}
+\Big(p_1 - A_1(q)\Big)\frac{\partial A_1}{\partial q_3} +\Big(p_2 - A_2(q)\Big)\frac{\partial A_2}{\partial q_3}=0.
+\end{align*}
+This is a first order differential equation in 2 unknown functions, which is not sufficient to determine a unique solution. An example of a family that satisfies the above: 
+\begin{align*}
+A(q_1,q_2) = (A_1(q_1,q_2),A_2(q_1,q_2),0).
+\end{align*}
+The second criteria we want: $A$ is 1-periodic in $q_1$ and $q_2$, so 
+\begin{align*}
+A(q_1+1,q_2+1,q_3)=A(q_1,q_2,q_3)
+\end{align*}
+In particular, we will later use the vector field $A(q) = (-\varepsilon(q_2\!\!\!\mod 1),0,0)\one_S$ where $\varepsilon>0$ and $\one_S$ is the indicator function on $S\subseteq \mathbb R^3$ which is a union of cylinders:
+\begin{align*}
+S = \bigcup_{n,m\in\mathbb Z} \left\{q\in\mathbb R^3: \left(q_1-n-\frac{1}{2}\right)^2+\left(q_2-m-\frac{1}{2}\right)^2\le R^2\right\}, 
+\end{align*}
+where $R\in (0,1/2)$. Writing out the final form of the Hamiltonian we consider:
+\begin{align}\label{eq:magnetichamiltonian2}
+H(q,p) = \frac{1}{2}\left(p_1^2+p_2^2\right) + \varepsilon q_2\left(p_1+\frac{\varepsilon q_2}{2}\right)\one_S = H_0(q,p) + \varepsilon H_1(q,p,\varepsilon)
+\end{align}
+where we ignore $q_3$ completely. We define $H_0$ and $H_1$ for later use, $H_0$ denotes the unperturbed Hamiltonian and $H_1$ the perturbation.
+
+We immediately notice that \eqref{eq:magnetichamiltonian2} is discontinuous along the boundary $\partial S$ of $S$, and this becomes an issue when considering trajectories that pass $\partial S$ tangentially. For some values of $\varepsilon>0$ we will find that the solution to \eqref{eq:magnetichamiltonian2} can be non-unique. We argue however that the dynamics of these solutions is not important, since $\partial S$ is a set of measure zero. Throughout the paper though we assume that if a trajectory does pass $\partial S$ tangentially, then it does not enter $S$.
+
+We also notice that we can express \eqref{eq:magnetichamiltonian2} as a Hamiltonian on the torus $\mathbb T^2=\mathbb R^2\backslash \mathbb Z^2$ via the usual quotient map which will be convenient for some proofs later. To fully comprehend the dynamics of \eqref{eq:magnetichamiltonian2} both in $\mathbb R^2$ and $\mathbb T^2$ we first discuss the dynamics of each piece separately. That is, we refresh our memory on linear motion in the plane, rotations in a torus, and motion in a uniform magnetic field in the plane.

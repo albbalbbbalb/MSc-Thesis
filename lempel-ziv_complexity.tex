@@ -1,0 +1,24 @@
+In the previous section, we attempted to assess the stability properties of the system by means of a Poincar\'e map. We found that there are families of both stable and unstable periodic orbits, and we also proved this with symbolic algebra. Now, we approach the question from the perspective of symbolic dynamics, and use the Lempel-Ziv compression algorithm to measure the complexity of trajectories.
+
+The Lempel-Ziv complexity is a measure of complexity suited for finite length sequences with finite alphabet. This means we need to decide how to extract some symbolic dynamics from the continuous time trajectories of the system. We will describe this after we define the Lempel-Ziv compression algorithm.
+
+As the authors, Abraham Lempel and Jacob Ziv, state in their paper \cite{LZ76} their complexity is not a measure of randomness, which they believe cannot exist, instead they proposed to evaluate ``the complexity of a finite sequence from the point of view of a simple self delimiting learning machine''. That is, a machine that scans the sequence by entry and records the number of ``new'' data accumulated, which in this case is unique substrings.
+
+To explain the algorithm, we use a series of examples, as in the paper \cite{Kaspar1987EasilyCM}. We are not interested in the technicalities of the original paper by Lempel and Ziv, so we only cite results when needed.
+
+Consider a sequence $s=s_1s_2\dots s_n$ of length $n\in\mathbb N$, where we see that $s_i$ is the entry at index $i$ in the sequence, the algorithm decides what is the smallest number of ``words'' in the sequence necessary for reconstruction. Suppose we have reconstructed $s$ up to the index $k<n$ and the word counter is $c$, that is, we have $s_1\dots s_k$. For the next iteration, the algorithm decides what is the largest $k<\ell\le n$ such that the subsequence $s_{k+1}\dots s_\ell$ appears at some index in $s_1\dots s_{\ell-1}$. Once this $\ell$ is found, the word counter is increased to $c+1$, if $\ell =n$, then the algorithm terminates, otherwise the process is repeated with $s_1\dots s_{\ell+1}$. If $\ell+1 =n$, then we are done as well. Consider the example sequence $01011010001101110010$, we indicate below each step of the algorithm. The $\cdot$ is used as a delimiter between words, and the top line indicates the longest subsequence we can find at each iteration, and the bottom line shows where they can be found.
+
+\begin{align*}
+\overline{0}1011010001101110010
+&\xrightarrow{(1)}0\cdot\overline{1}011010001101110010 \\
+&\xrightarrow{(2)}\underline{0\cdot1}\cdot\overline{01}1010001101110010 \\
+&\xrightarrow{(3)}\underline{0\cdot1\cdot0}11\cdot\overline{010}001101110010 \\
+&\xrightarrow{(4)}0\cdot1\cdot\underline{011\cdot01}00\cdot\overline{01101}110010 \\
+&\xrightarrow{(5)}0\cdot1\cdot011\cdot0\underline{100}\cdot011011\cdot\overline{100}10 \\
+&\xrightarrow{(5)}\underline{0}\cdot1\cdot011\cdot0100\cdot011011\cdot1001\cdot\overline{0} \\
+&\xrightarrow{(6)}0\cdot1\cdot011\cdot0100\cdot011011\cdot1001\cdot0 \\
+\end{align*}
+
+At the start, we scan from the left, and notice we have never encountered a $0$, so for step (1) we add $0$ on its own. Next, we encounter $1$ for the first time, and add it in step (2). Next, we see that we have encountered $01$, so we add $011$. Notice, how we ignore the delimiter between words. We indicate the rest of the steps without commentary. Once the algorithm terminates, we see that the number of words is 7, so the complexity of this sequence is $7$. The complexity is not normalized to $[0,1]$ generally, however it is convenient to consider the \textit{compression ratio}, which in this case is $7/20=0.35$, that is, we compressed a sequence of 20 symbols to 7 bits of information. We note that the compression ratio is mostly useful for comparing the compression of sequences of the same length. If we take the sequence in the above example and add a 1 at the end, then the complexity will stay 7, which then means the compression ratio is now $7/21=0.33\dots$, which is smaller than before, and that does not fit well with the intuition that complexity is non-decreasing with respect to the length of a sequence.
+
+Now, that we have an idea how the Lempel-Ziv (LZ) complexity is computed, we can discuss how LZ capture the regularity (or lack of it) in symbolic dynamics. 

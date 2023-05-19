@@ -1,0 +1,47 @@
+\begin{thebibliography}{Kna18}
+
+\bibitem[Gas21]{Gasiorek_2021}
+Sean Gasiorek.
+\newblock On the dynamics of inverse magnetic billiards.
+\newblock {\em Nonlinearity}, 34(3):1503--1524, mar 2021.
+\newblock \url{https://doi.org/10.1088%2F1361-6544%2Fabe2f1}.
+
+\bibitem[Kna18]{Knauf_2018}
+Andreas Knauf.
+\newblock {\em Mathematical Physics: Classical Mechanics}.
+\newblock Springer Berlin, Heidelberg, mar 2018.
+\newblock \url{https://doi.org/10.1007/978-3-662-55774-7}.
+
+\bibitem[KS87]{Kaspar1987EasilyCM}
+Kaspar and Schuster.
+\newblock Easily calculable measure for the complexity of spatiotemporal
+  patterns.
+\newblock {\em Physical review. A, General physics}, 36 2:842--848, 1987.
+
+\bibitem[KS17]{Knauf_2017}
+Andreas Knauf and Marcello Seri.
+\newblock Symbolic dynamics of magnetic bumps.
+\newblock {\em Regular and Chaotic Dynamics}, 22(4):448--454, jul 2017.
+\newblock \url{https://doi.org/10.1134%2Fs1560354717040074}.
+
+\bibitem[LZ76]{LZ76}
+A.~Lempel and J.~Ziv.
+\newblock On the complexity of finite sequences.
+\newblock {\em IEEE Transactions on Information Theory}, 22(1):75--81, January
+  1976.
+
+\bibitem[Pö82]{poschel82}
+Jürgen Pöschel.
+\newblock Integrability of hamiltonian systems on cantor sets.
+\newblock {\em Communications on Pure and Applied Mathematics}, 35(5):653--696,
+  1982.
+\newblock \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/cpa.3160350504}.
+
+\bibitem[Ser22]{Seri_2022}
+Marcello Seri.
+\newblock {\em Hamiltonian Mechanics}.
+\newblock AMS Open Math Notes, mar 2022.
+\newblock
+  \url{https://www.ams.org/open-math-notes/omn-view-listing?listingId=110861}.
+
+\end{thebibliography}
