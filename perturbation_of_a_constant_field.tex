@@ -1,1 +1,19 @@
 \subsection{Perturbation of motion in a constant field}
+
+From \cref{fig:weakcomparison} we saw that instead of perturbing a linear Hamiltonian, we can try perturbing a Hamiltonian for a uniform magnetic field in the plane. If $R$ is the radius of the magnetic disks, $b$ the strength of the field, $L$ the Larmor radius for $b$, and likewise for $\hat L$ and $\hat b$, we proposed a relation $\hat b = \pi R^2b$. To verify this relation, we instead use $\hat L =L/(\pi R^2)$, since $L$ and $R$ are parameters to choose and we can approximate $\hat L$ from the time series data. Our problem is then to check the order of $\hat L - L/(\pi R^2)$ for some choices of $L$ and $R$. 
+
+To approximate $\hat L$ we use the method of I.\,Coope which uses a change of coordinates to bring a non-linear least squares problem to the form of a linear problem. The set up and advantages of this method are discussed in \cite{Coope93}, and our use of it can be viewed at [??]. 
+
+\begin{table}[!ht]
+\centering
+\renewcommand{\arraystretch}{1.25}
+\input{code_and_figures/table1.tex}
+\caption{Given $R$ and $b$, we find the radius of a circle fit to a trajectory starting at a random initial condition. The average radius $\hat L$ is computed over 20 samples. The last column checks how well our ansatz fits}
+\label{tab:modeling}
+\end{table}
+
+To collect data we tried 15 different pairs of parameters $(R,b)$  chosen at random uniformly from the range $(0.05, 0.49)\times (10^{-5},10^{-2})$. For each pair $(R,b)$, we chose 20 initial conditions at random and computed the corresponding trajectories for some finite time. For each trajectory we fit a circle as described above and were left with 20 values for $\hat L$. Finally, we took the average over the 20 values of $\hat L$ assuming the average best represents the true value of $\hat L$. To judge the plausibility of our model we computed $\Delta = \pi\hat LR^2b-1$.
+
+Overall, the results show that our assumptions are plausible, since $\Delta$ is small. However, comparing individual results, we see some inconsistencies. For example, comparing runs 10 and 11, we see that $R$ and $b$ are comparable in magnitude however their computed $\Delta$ differ in magnitude. The same can be noticed for runs 3 and 15, and even 1 and 2. We do not attribute this to the circle fitting method, when testing the code, the fitting appeared reasonable. Instead this discrepancy is likely due to the random choice of initial conditions for each run. The trajectory of one initial condition could have shorter flights outside the magnetic disks leading to more deflection, and more curving, hence a nicer circle, and some trajectories could have longer flights which would produce a curve that is more of an ellipse.
+
+\color{red}Conclusion...\color{black}

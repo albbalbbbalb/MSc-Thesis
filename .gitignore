@@ -1,0 +1,17 @@
+# ignore the nasty tex build files except the .pdf
+build/main.aux 
+build/main.blg 
+build/main.lof 
+build/main.lot 
+build/main.synctex.gz
+build/main.bbl 
+build/main.dvi 
+build/main.log  
+build/main.toc
+
+# ignore jupyter notebooks that are used for troubleshooting code
+code_and_figures/Figures.ipynb 
+code_and_figures/Lempel\ ziv\ computations.ipynb
+code_and_figures/__pycache__
+code_and_figures/.ipynb_checkpoints
+*.swp

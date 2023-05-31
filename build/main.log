@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.9)  19 MAY 2023 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.11.9)  1 JUN 2023 00:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -829,97 +829,127 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [2]
-(./introduction.tex [3]) (./linear_motion_and_rotations_on_the_torus.tex
-[4]) (./uniform_magnetic_field.tex [5])
+
+(build/main.lot)
+\tf@lot=\write8
+\openout8 = `main.lot'.
+
+ [2] (./introduction.tex [3])
+(./linear_motion_and_rotations_on_the_torus.tex [4])
+(./uniform_magnetic_field.tex [5])
 (./interplay_of_linear_motion_and_magnetic_fields.tex) (./KAM_theory.tex
 [6]
-LaTeX Font Info:    Trying to load font information for U+eus on input line 31.
+LaTeX Font Info:    Trying to load font information for U+eus on input line 30.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
-) [7] [8])
-(./perturbations_of_linear_motion.tex [9])
-(./perturbation_of_a_constant_field.tex) (./poincare.tex [10] [11]
-<figures/photo_2023-04-17_18-09-20.jpg, id=93, 1284.8pt x 963.6pt>
-File: figures/photo_2023-04-17_18-09-20.jpg Graphic file (type jpg)
-<use figures/photo_2023-04-17_18-09-20.jpg>
-Package pdftex.def Info: figures/photo_2023-04-17_18-09-20.jpg  used on input l
-ine 64.
-(pdftex.def)             Requested size: 209.1301pt x 156.84045pt.
-<figures/photo_2023-04-17_18-09-21.jpg, id=94, 1282.7925pt x 517.935pt>
-File: figures/photo_2023-04-17_18-09-21.jpg Graphic file (type jpg)
-<use figures/photo_2023-04-17_18-09-21.jpg>
-Package pdftex.def Info: figures/photo_2023-04-17_18-09-21.jpg  used on input l
-ine 70.
-(pdftex.def)             Requested size: 209.1301pt x 151.7542pt.
-<figures/photo_2023-04-17_18-09-23.jpg, id=96, 1282.7925pt x 732.7375pt>
-File: figures/photo_2023-04-17_18-09-23.jpg Graphic file (type jpg)
-<use figures/photo_2023-04-17_18-09-23.jpg>
-Package pdftex.def Info: figures/photo_2023-04-17_18-09-23.jpg  used on input l
-ine 76.
-(pdftex.def)             Requested size: 209.1301pt x 119.45416pt.
-<figures/photo_2023-04-17_18-41-12.jpg, id=97, 1282.7925pt x 961.5925pt>
-File: figures/photo_2023-04-17_18-41-12.jpg Graphic file (type jpg)
-<use figures/photo_2023-04-17_18-41-12.jpg>
-Package pdftex.def Info: figures/photo_2023-04-17_18-41-12.jpg  used on input l
-ine 82.
-(pdftex.def)             Requested size: 209.1301pt x 156.76314pt.
-)
-(./lempel-ziv_complexity.tex [12] [13 <./figures/photo_2023-04-17_18-09-21.jpg>
- <./figures/photo_2023-04-17_18-09-20.jpg> <./figures/photo_2023-04-17_18-09-23
-.jpg> <./figures/photo_2023-04-17_18-41-12.jpg>]) (./further_questions.tex
+) [7] [8]
+<./code_and_figures/fig1.png, id=82, 722.7pt x 722.7pt>
+File: ./code_and_figures/fig1.png Graphic file (type png)
+<use ./code_and_figures/fig1.png>
+Package pdftex.def Info: ./code_and_figures/fig1.png  used on input line 91.
+(pdftex.def)             Requested size: 128.0387pt x 186.90509pt.
+<./code_and_figures/fig2.png, id=85, 722.7pt x 722.7pt>
+File: ./code_and_figures/fig2.png Graphic file (type png)
+<use ./code_and_figures/fig2.png>
+Package pdftex.def Info: ./code_and_figures/fig2.png  used on input line 98.
+(pdftex.def)             Requested size: 128.0387pt x 186.90509pt.
+<./code_and_figures/fig3.png, id=87, 722.7pt x 722.7pt>
+File: ./code_and_figures/fig3.png Graphic file (type png)
+<use ./code_and_figures/fig3.png>
+Package pdftex.def Info: ./code_and_figures/fig3.png  used on input line 105.
+(pdftex.def)             Requested size: 128.0387pt x 186.90509pt.
+ [9 <./code_and_figures/fig1.png> <./code_and_figures/fig2.png> <./code_and_fig
+ures/fig3.png>]) (./perturbations_of_linear_motion.tex [10])
+(./perturbation_of_a_constant_field.tex (./code_and_figures/table1.tex)
+[11]) (./poincare.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14])
-[15] (build/main.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 16--20
+ [12]
+[13] [14]
+<./code_and_figures/photo_2023-04-17_18-09-20.jpg, id=117, 1284.8pt x 963.6pt>
+File: ./code_and_figures/photo_2023-04-17_18-09-20.jpg Graphic file (type jpg)
+<use ./code_and_figures/photo_2023-04-17_18-09-20.jpg>
+Package pdftex.def Info: ./code_and_figures/photo_2023-04-17_18-09-20.jpg  used
+ on input line 64.
+(pdftex.def)             Requested size: 209.1301pt x 156.84045pt.
+<./code_and_figures/photo_2023-04-17_18-09-21.jpg, id=118, 1282.7925pt x 517.93
+5pt>
+File: ./code_and_figures/photo_2023-04-17_18-09-21.jpg Graphic file (type jpg)
+<use ./code_and_figures/photo_2023-04-17_18-09-21.jpg>
+Package pdftex.def Info: ./code_and_figures/photo_2023-04-17_18-09-21.jpg  used
+ on input line 70.
+(pdftex.def)             Requested size: 209.1301pt x 151.7542pt.
+<./code_and_figures/photo_2023-04-17_18-09-23.jpg, id=120, 1282.7925pt x 732.73
+75pt>
+File: ./code_and_figures/photo_2023-04-17_18-09-23.jpg Graphic file (type jpg)
+<use ./code_and_figures/photo_2023-04-17_18-09-23.jpg>
+Package pdftex.def Info: ./code_and_figures/photo_2023-04-17_18-09-23.jpg  used
+ on input line 76.
+(pdftex.def)             Requested size: 209.1301pt x 119.45416pt.
+<./code_and_figures/photo_2023-04-17_18-41-12.jpg, id=121, 1282.7925pt x 961.59
+25pt>
+File: ./code_and_figures/photo_2023-04-17_18-41-12.jpg Graphic file (type jpg)
+<use ./code_and_figures/photo_2023-04-17_18-41-12.jpg>
+Package pdftex.def Info: ./code_and_figures/photo_2023-04-17_18-41-12.jpg  used
+ on input line 82.
+(pdftex.def)             Requested size: 209.1301pt x 156.76314pt.
+) (./lempel-ziv_complexity.tex [15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [16 <./code_and_figures/photo_2023-04-17_18-09-21.jpg> <./code_and_figures/pho
+to_2023-04-17_18-09-20.jpg> <./code_and_figures/photo_2023-04-17_18-09-23.jpg> 
+<./code_and_figures/photo_2023-04-17_18-41-12.jpg>]) (./further_questions.tex) 
+[17]
+(build/main.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 23--27
 []\OT1/cmr/m/n/12 Andreas Knauf.  \OT1/cmr/m/it/12 Math-e-mat-i-cal Physics: Cl
 as-si-cal Me-chan-ics\OT1/cmr/m/n/12 .
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 40--45
+Underfull \hbox (badness 3471) in paragraph at lines 47--52
 []\OT1/cmr/m/n/12 J^^?urgen P^^?oschel.  In-te-gra-bil-ity of hamil-to-nian sys
 -tems on can-tor
  []
 
 
-Underfull \hbox (badness 3930) in paragraph at lines 47--52
+Underfull \hbox (badness 3930) in paragraph at lines 54--59
 \OT1/cmr/m/n/12 2022.  $\OT1/cmtt/m/n/12 https : / / www . ams . org / open-[]m
 ath-[]notes / omn-[]view-[]listing ?
  []
 
-) [16] (build/main.aux) ) 
+[18]) [19] (build/main.aux) ) 
 Here is how much of TeX's memory you used:
- 24336 strings out of 481239
- 506338 string characters out of 5920377
- 769103 words of memory out of 5000000
- 39144 multiletter control sequences out of 15000+600000
- 545120 words of font info for 77 fonts, out of 8000000 for 9000
+ 24391 strings out of 481239
+ 507638 string characters out of 5920377
+ 775451 words of memory out of 5000000
+ 39185 multiletter control sequences out of 15000+600000
+ 546649 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,18n,99p,1191b,528s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on build/main.pdf (16 pages, 497237 bytes).
+ 59i,18n,99p,1191b,530s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on build/main.pdf (19 pages, 623004 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 201 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 183 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

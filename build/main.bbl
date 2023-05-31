@@ -1,5 +1,12 @@
 \begin{thebibliography}{Kna18}
 
+\bibitem[Coo93]{Coope93}
+I.~D. Coope.
+\newblock Circle fitting by linear and nonlinear least squares.
+\newblock {\em Journal of Optimization Theory and Applications}, 76:381--388,
+  Feb 1993.
+\newblock \url{https://doi.org/10.1007/BF00939613}.
+
 \bibitem[Eva98]{Evans_1998}
 Lawrence~C. Evans.
 \newblock {\em Partial Differential Equations}.

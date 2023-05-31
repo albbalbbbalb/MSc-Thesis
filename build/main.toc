@@ -4,10 +4,11 @@
 \contentsline {subsection}{\numberline {1.3}Uniform magnetic vector field in the plane}{5}%
 \contentsline {subsection}{\numberline {1.4}interplay of linear motion and magnetic fields}{6}%
 \contentsline {section}{\numberline {2}Weak magnetic field and KAM theory}{6}%
-\contentsline {subsection}{\numberline {2.1}Perturbations of linear motion}{9}%
-\contentsline {subsection}{\numberline {2.2}Perturbation of motion in a constant field}{10}%
-\contentsline {section}{\numberline {3}Stability analysis via Poincar\'e sections}{10}%
-\contentsline {section}{\numberline {4}Lempel-Ziv complexity and symbolic dynamics}{12}%
-\contentsline {section}{\numberline {5}Levy Flights}{15}%
-\contentsline {section}{\numberline {6}Conclusion}{15}%
-\contentsline {subsection}{\numberline {6.1}Further questions}{15}%
+\contentsline {subsection}{\numberline {2.1}Approximating locally $L^1$ functions for KAM}{8}%
+\contentsline {subsection}{\numberline {2.2}Perturbations of linear motion}{10}%
+\contentsline {subsection}{\numberline {2.3}Perturbation of motion in a constant field}{11}%
+\contentsline {section}{\numberline {3}Stability analysis via Poincar\'e sections}{13}%
+\contentsline {section}{\numberline {4}Lempel-Ziv complexity and symbolic dynamics}{15}%
+\contentsline {section}{\numberline {5}Levy Flights}{17}%
+\contentsline {section}{\numberline {6}Conclusion}{17}%
+\contentsline {subsection}{\numberline {6.1}Further questions}{17}%
