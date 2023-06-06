@@ -29,11 +29,10 @@ fig, ax = plt.subplots(1,1,figsize=(10,10),dpi=80)
 
 
 for idx, (i,j) in enumerate(zip(b, n)):
-    XOut, XIn, xydir, dirs, entered = mag.orbit(X, R, i, int(j), maxIt=10000)
+    XOut, XIn, xydir, entered = mag.orbit(X, R, i, int(j), maxIt=10000)
     print(entered)
 
-    shifts = np.array([ np.sum([mag.from_where[i] for i in xy],axis=0) for xy in xydir])
-
+    shifts = np.array([ np.sum(xy, axis=0) for xy in xydir])
     shifts = np.add.accumulate(shifts,0)
 
     XIn[:,:2] += shifts

@@ -1,32 +1,52 @@
-\color{red}
-In the last two sections we discussed linear motion in the plane and motion with a uniform vector field in the plane. Now, we understand the motion of \eqref{eq:magnetichamiltonian2}: within $S$ the motion follows an arc of a Larmor circle, and outside $S$ the motion is linear. We notice that we can describe the motion solely using analytic geometry, that is, the dynamics is determined by intersections of lines with circles or circles with circles, with the exception of trajectories that are tangent to $\partial S$ which we discussed before and have since ignored.
 
-We present now, and prove later, that the continuous time motion of \eqref{eq:magnetichamiltonian2} can be characterized discretely, that is, we can pick a Poincar\'e section and a Poincar\'e map.
-\color{black}
+Previously, we discussed the dynamics of \eqref{eq:magnetichamiltonian2} from the perspective of perturbation theory. Now, we attempt to extract some meaningful symbolic dynamics. We specify \textit{meaningful} dynamics because we fail to do so via the standard approach: finding a markov partition and a conjugation to the shift map, instead we consider a reasonable map into a symbol space and judge the dynamics via the Lempel-Ziv complexity measure. What we find is two complementary methods to characterize the dynamics.
 
-We notice that the dynamics of the system can be broken down into two modes: the first linear motion outside the magnetic disk, and the second being deflection in the disk. If a trajectory with initial condition on the boundary of the disk always returns to the boundary of the disk we can compress the system from continuous time to discrete time via a Poincar\'e map. We would then like to prove that the boundary of the magnetic region with the set of outward pointing velocities, that is,
-\begin{align}\label{def:poincaresection}
-S = \bigcup_{\theta\in[0,2\pi]}\{\theta\}\times\left[\theta-\frac{\pi}{2},\theta+\frac{\pi}{2} \right]
+\subsection{Constructing a Poincar\'e section}
+
+To simplify the notation, we consider motion in the torus $\mathbb T=[0,1]^2$, this way we need only refer to one disk $S= \{x\in \mathbb T : \|x-1/2\|\le R\}$. We recall the trajectories have two modes: linear outside the magnetic disk $S$, and along circular arcs within the disk. Consider two subsets $\Sin,\Sout\subset \mathbb T\times\mathbb R^2$ of phase space defined by:
+\begin{align}
+\label{def:poincaresectionIN}
+\Sin &= \bigcup_{x\in\partial S} \{x\} \times \{v\in\mathbb R^2 : v\cdot (x-1/2) < 0\},\\
+\label{def:poincaresectionOUT}
+\Sout &= \bigcup_{x\in\partial S} \{x\} \times \{v\in\mathbb R^2 : v\cdot (x-1/2) > 0\},
 \end{align}
-is a Poincar\'e section. To prove this we need to recall rotations on a torus. If the angle of rotation is irrational, then the trajectory fills the torus densely, if the angle is rational, then the trajectory is periodic and a closed loop. To complete the statement, we need the Poincar\'e map $P$ itself, \color{red}here we state the form of the map but we are too lazy for now.\color{black}
+so $\Sin$ is the part of phase space that lies on the boundary $\partial S$ and has velocity vector pointing into $S$, while $\Sout$ points outward. Notice that we exclude velocities that are tangential to $\partial S$. We show now that both $\Sin$ and $\Sout$ are poincare sections of the full system.
 
-We define the map $P$ already assuming that the trajectory returns for sure. We prove that it does now:
-
-\begin{proposition}
-The set $S$ as in \eqref{def:poincaresection} is a Poincar\'e section for the system, and the map $P:U\to P(U)$ is a Poincar\'e map.
-\end{proposition}
-
+\begin{lemma}
+The flow of \eqref{eq:magnetichamiltonian2} induces a well-defined map $P_\text{io}:\Sin\to\Sout$.
+\end{lemma}
 \begin{proof}
-We need to prove that a trajectory of the system with initial condition in $S$ returns to $S$. Notice that if a trajectory enters the disk transversally, it will exit the disk transversally as well. This means if we can show that if all initial conditions in $S$ have a time $t$ at which their trajectory is on the disk and is pointing inward, then we are done.
-
-Let $(x,v)\in S$, and consider the trajectory of the system evolving with this initial condition. If $v$ is a rational angle, then the trajectory corresponding to rotations on the torus is periodic, and there exists a time $t>0$ at which we return to the same point $x$. Since $(x,v)$ is transversal to the disk, this means there exists a time $t_1<t$ when the trajectory is on the boundary of the disk and has velocity pointing inward the disk.
-
-If $v$ is an irrational angle, then the trajectory corresponding to rotations on the torus is dense in the torus. Let $U$ be a neighborhood of $x$ in the boundary of the disk, such that all $U\times\{v\}$ are transversal to the disk. This is possible, since $(x,v)$ itself is transversal. Pick $y\in U$, then for some $t>0$ the trajectory of the rotation is at $y$ with velocity $v$, that is the trajectory is transversal. Following the same reasoning as the previous case, there is a time $t_1<t$ at which the trajectory must enter the disk.
-
-We have shown that the trajectory of the rotation returns to the disk and points inward in finite time, and at least once. For the Poincar\'e map we then take the first time the trajectory returns to the disk. 
+Let $(x,v)\in \Sin$, under the flow of \eqref{eq:magnetichamiltonian2} we know the Larmor circle $C$ with initial conditions $(x,v)$ intersects $\partial S$ in $x$ and that at $x$ the circles are not tangential. Two circles intersecting at a point non-tangentially must intersect at a second point, so there exists $x\neq y\in\partial S\cap C$. By the flow of \eqref{eq:magnetichamiltonian2} there must also exist a velocity $w\in\mathbb R^2$ such that $w\cdot(x-1/2)>0$, that is $(y,w)\in\Sout$. Hence we have $P_\text{io}(x,v) = (y,w)$. 
 \end{proof}
 
-Using the Poincar\'e map we can study the stability of periodic trajectories of the system. The computations become unwieldy on paper, so we use a computer. The code for this can be found at \color{red}insert code reference [??]\color{black}
+We can say more, there exists a line $\ell$ through the center $a$ of the Larmor circle $C$ and the center $(1/2,1/2)$ of $\partial S$. The two circles are symmetric with respect to the reflection $T$ with respect to $\ell$. This means $Tx=y$, and $Tv = -w$. The following statement is more interesting.
+
+\begin{lemma}
+The flow of \eqref{eq:magnetichamiltonian2} induces a well-defined map $P_\text{oi}:\Sout\to\Sin$.
+\end{lemma}
+\begin{proof}
+Let $(x,v)\in\Sout$, then under the flow of \eqref{eq:magnetichamiltonian2} we see linear motion. Ignoring the presence of $S$, we see that depending on $v$, the trajectory is either periodic or is dense in $\mathbb T$.
+
+Focusing on the first case, in finite time we return to the point $x$. Since the trajectory is a line $\ell$ interesecting $\partial S$ transversally, there must be another point of intersection $x\neq y\in\partial S\cap\ell$. The velocity at $y$ must also be $v$, so due to the geometry of a circle, $(y,v)\in\Sin$. For the second case, we can pick $\varepsilon>0$ such that all points in $U=(\partial S\cap B_\varepsilon(x))\times\{v\}\subset \Sout$ are transversal to $\partial S$. Let $(y,v)\in U$, since the flow is dense for the velocity $v$, ignoring $S$, we know that in finite time the point $(x,v)$ comes to $(y,v)$. The rest of this case follows the same way as previously. 
+
+In either case, the $(y,v)$ we find is not necessarily the first time we enter $\Sin$ but since the number of such points is countable, we can pick the first one $(y_0,v)$, hence, $P_\text{oi}(x,v) = (y_0,v)$ is a well-defined map.
+\end{proof}
+
+Now, we can finalize the Poincar\'e map.
+
+\begin{proposition}
+The sets $\Sin$ and $\Sout$ are Poincar\'e sections with Poincar\'e maps $P_\text{in} = P_\text{oi}\circ P_\text{io}$ and $P_\text{out}= P_\text{io}\circ P_\text{oi}$, respectively.
+\end{proposition}
+
+Notice that the reasoning is independent of the radius of $S$, nor does it depend on the exact position of $S$. Pulling back to the plane with an infinite number of disks, we can then generalize the setup. Consider a fundamental finite set $A$ of disks where each disk in $A$ can have a different magnetic strength and radius and the disks need not be regularly placed. The above result holds for configurations of disks which can be decomposed as a tiling of such a set $A$.
+
+In \cite{Knauf_2017} a similar result is proved for a configuration of finitely many bumps. In that case a different method was used that did not rely on an infinite number of bumps, in ours the reasoning was simplified due to this.
+
+\subsection{Some simple periodic trajectories}
+
+With the Poincar\'e map we can already study the stability of periodic trajectories of the system. We provide some simple examples in this section, and prove the (in)-stability of some. The examples were found by trial and error, and with some imagination. We will detect more complicated periodicity in the section where we introduce the Lempel-Ziv complexity. We present some periodic orbits in FIG, the parameters and initial conditions can be found in the TABLE
+
+
 
 The code written in \texttt{Python} utilizes the symbolic algebra system \texttt{Sympy} to define functions, compute derivatives, compose functions, and compute eigenvalues of a Jacobian symbolically. That way we avoid a considerable amount of computation by hand but still retain a high degree of precision when computing numerical values. For long enough periodic orbits, the computation time using symbolic algebra becomes unreasonable, so we require a different way to analyse stability. A common alternative is to compute Lyapunov exponents of the original system or of the Poincar\'e map. However, these approaches are prone to numerical instability and require significant preparation beforehand. We would like to analyze stability from the trajectory directly, and we attempt this via symbolic dynamics in the next section.
 
@@ -61,29 +81,29 @@ Lastly, we have a more complicated periodic orbit that forms an octagon for
 \centering
 \begin{subfigure}{0.49\textwidth}
 \centering
-\includegraphics[width=\textwidth]{photo_2023-04-17_18-09-20.jpg}
-\caption{$(x,p) = (0,1/2+\delta,1,0)$ and $b=1/\delta$ where $\delta\in(0,1/3)$.}
+\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig5.png}
+\caption{say smth albert}
 \label{subfig:periodicorbit1}
 \end{subfigure}
 %
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=\textwidth, trim={20cm 0 0 0}, clip]{photo_2023-04-17_18-09-21.jpg}
-\caption{$(x,p) = (0,1/2+\delta,1,0)$ and $b=1/(\delta+\sqrt{1/9-\delta^2})$ where $\delta\in(-1/\sqrt{18},1/3)$.}
+\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig4.png}
+\caption{say smth albert}
 \label{subfig:periodicorbit2}
 \end{subfigure}
 %
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=\textwidth]{photo_2023-04-17_18-09-23.jpg}
-\caption{$(x,p) = (0,1/2+\delta,1,0)$ and $b=1/(\delta-\sqrt{1/9-\delta^2})$ where $\delta\in(1/\sqrt{18}),1/3$.}
+\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig6.png}
+\caption{a.}
 \label{subfig:periodicorbit3}
 \end{subfigure}
 %
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=\textwidth]{photo_2023-04-17_18-41-12.jpg}
-\caption{$(x,p) = (0,1/2+\delta,1,0)$ and $b=1/(\delta-\sqrt{1/9-\delta^2})$ where $\delta\in(1/\sqrt{18}),1/3$.}
+\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig7.png}
+\caption{.}
 \label{subfig:periodicorbit4}
 \end{subfigure}
-\caption{Some families of periodic orbits with initial condition $(x,p)$ and magnetic field strength $b$, parametrized by $\delta>0$.}
+\caption{Examples of periodic, quasiperiodic, and aperiodic trajectories for varying choices of parameters.}
 \label{fig:periodicorbits}
 \end{figure}
 

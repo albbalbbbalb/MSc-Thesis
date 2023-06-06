@@ -93,11 +93,11 @@ def cellToCell(X, tol=1e-15):
 
 
     if np.abs(t1 - t2) < tol:
-        return np.array([1 - d1, 1 - d2, v1, v2]), to_where[(s1, s2)]
+        return np.array([1 - d1, 1 - d2, v1, v2]),     np.array([s1, s2])
     elif t1 < t2:
-        return np.array([1 - d1, v2*t1 + x2, v1, v2]), to_where[(s1, 0)]
+        return np.array([1 - d1, v2*t1 + x2, v1, v2]), np.array([s1,  0])
     else:
-        return np.array([v1*t2 + x1, 1 - d2, v1, v2]), to_where[(0, s2)]
+        return np.array([v1*t2 + x1, 1 - d2, v1, v2]), np.array([ 0, s2])
 
 
 def next_sqr(X,tol=1e-15):
@@ -107,11 +107,7 @@ def next_sqr(X,tol=1e-15):
     dx = int(np.abs(x - 1) < tol) - int(np.abs(x) < tol)
     dy = int(np.abs(y - 1) < tol) - int(np.abs(y) < tol)
 
-    direction = (dx,dy)
-
-    letter = to_where[direction]
-
-    return np.array(direction), letter
+    return np.array(direction), np.array([dx, dy])
 
 
 
@@ -125,8 +121,8 @@ def SOutToSIn(X, R, maxIt=1000, tol=1e-15):
     entered     a flag announcing the entry into SIn
     '''
     
-    xydir = np.zeros(maxIt)
-    Xn, xydir[0] = cellToCell(X, tol)
+    xydir = np.zeros((maxIt, 2))
+    Xn, xydir[0,:] = cellToCell(X, tol)
     entered = 0
 
     for m in range(1, maxIt):
@@ -135,9 +131,9 @@ def SOutToSIn(X, R, maxIt=1000, tol=1e-15):
             Xn = circ
             entered = 1
             break
-        Xn, xydir[m] = cellToCell(Xn, tol)
+        Xn, xydir[m,:] = cellToCell(Xn, tol)
     
-    return Xn, xydir[:m], entered
+    return Xn, xydir[:m,:], entered
 
 
 def orbit(X, R, b, n=1000, maxIt=1000, tol=1e-15):
@@ -157,9 +153,107 @@ def orbit(X, R, b, n=1000, maxIt=1000, tol=1e-15):
             break
         XOut[m+1] = SInToSOut(XIn[m], b)
 
-    dirs = np.block(xydir.tolist())
+    return XOut[:m+1], XIn[:m], xydir[:m], entered
 
-    return XOut[:m+1], XIn[:m], xydir[:m], dirs, entered
+
+
+
+def plotCircles(ax, R, xydir, **kwargs):
+
+    shifts = np.array([ np.sum(xy,axis=0) for xy in xydir])
+    shifts = np.add.accumulate(shifts,0)
+    shifts = np.unique(shifts, axis=0)
+
+    ax.set_xticks(shifts[:,0]+1/2, [ "$"+str(i)+"$" for i in shifts[:,0]+1/2], **kwargs)
+    ax.set_yticks(shifts[:,1]+1/2, [ "$"+str(i)+"$" for i in shifts[:,1]+1/2], **kwargs)
+
+    t = np.linspace(0,2*np.pi,100)
+    x = R*np.cos(t)+1/2
+    y = R*np.sin(t)+1/2
+
+    
+    for a,b in shifts:
+        ax.plot(x+a,y+b, "k:")
+
+    out = ax.plot(x,y,"k:")
+
+    return out
+
+
+
+
+def plotTrajectory(ax, XOut, XIn, xydir):
+
+    XO = XOut.copy()
+    XI = XIn.copy()
+
+    shifts = np.array([ np.sum(xy,axis=0) for xy in xydir])
+    shifts = np.add.accumulate(shifts,0)
+    
+    XI[:,:2] += shifts
+    XO[:,:2] += np.vstack([np.zeros(2), shifts])
+
+    n = XI.shape[0] + XO.shape[0]
+    Xs = np.zeros((n,4))
+    Xs[::2] = XO
+    Xs[1::2] = XI
+
+    for k in range(Xs.shape[0]//2):
+        ax.plot(Xs[2*k:2*k+2,0], Xs[2*k:2*k+2,1], "b")
+        ax.plot(Xs[2*k+1:2*k+3,0], Xs[2*k+1:2*k+3,1], "r")
+    
+    out = ax.plot(Xs[0,0],Xs[0,1],"ks")
+    
+    return out
+
+
+
+
+
+def preparePoincare(ax, S='out', **kwargs):
+
+    from matplotlib.patches import Rectangle
+
+    H = np.pi/2 * np.sqrt(2)
+
+    if S == 'out':
+        artists = [
+            Rectangle((-np.pi,   np.pi/2),   H, H, angle=45, alpha=0.5),
+            Rectangle((-np.pi,-3*np.pi/2), 5*H, H, angle=45, alpha=0.5),
+            Rectangle(( np.pi,-3*np.pi/2),   H, H, angle=45, alpha=0.5)
+            ]
+    elif S == 'in':
+        artists = [
+            Rectangle((-np.pi,  -np.pi/2), 3*H, H, angle=45, alpha=0.5),
+            Rectangle((     0,-3*np.pi/2), 3*H, H, angle=45, alpha=0.5)
+            ]
+
+    for i in artists:
+        ax.add_artist(i)
+
+    ticks = np.linspace(-1,1,5)*np.pi
+    labels = ["$-\pi$", "$-\\frac{\pi}{2}$" , "$0$", "$\\frac{\pi}{2}$" , "$\pi$"]
+    ax.set_xticks(ticks, labels, **kwargs)
+    ax.set_yticks(ticks, labels, **kwargs)
+    ax.grid(color='k', linestyle=':')
+
+    ax.set_xlim([-np.pi,np.pi])
+    out = ax.set_ylim([-np.pi,np.pi])
+
+    return out
+
+
+
+
+def plotPoincareOut(ax, XOut, **kwargs):
+
+    preparePoincare(ax, S='out', **kwargs)
+
+    thetas = np.arctan2(XOut[:,1]-1/2,XOut[:,0]-1/2)
+    phis = np.arctan2(XOut[:,3],XOut[:,2])
+    out = ax.plot(thetas, phis,"rs")
+
+    return out
 
 
 
