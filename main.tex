@@ -1,7 +1,7 @@
-\documentclass[notitlepage,a4paper,12pt]{article}
+\documentclass[notitlepage, a4paper]{article}
 
-\usepackage[left=1cm,right=1cm,top=1.5cm,bottom=1.5cm,
-            headheight=14.92502pt]{geometry}
+%\usepackage[left=1cm,right=1cm,top=1.5cm,bottom=1.5cm,
+%            headheight=14.92502pt]{geometry}
 
 %\usepackage{fancyhdr}
 %\pagestyle{fancy}
@@ -40,9 +40,6 @@
 \usepackage{array}
 \usepackage{url}
 
-\usepackage{tcolorbox}
-\tcbuselibrary{most}
-\newtcolorbox{planning}{breakable,colframe=cyan,colback=cyan!20}
 
 \newcommand{\D}{\text{d}}
 \newcommand{\sech}{\text{sech}}
@@ -59,6 +56,7 @@
 \usepackage{csquotes}
 
 \usepackage{xcolor}
+\usepackage{soul}
 
 \usepackage{graphicx}
 \graphicspath{{./code_and_figures/}}
@@ -121,7 +119,7 @@
 
 \input{poincare.tex}
 
-\section{Lempel-Ziv complexity and symbolic dynamics}
+\section{Lempel-Ziv and Symbolic dynamics}
 
 \input{lempel-ziv_complexity.tex}
 

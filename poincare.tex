@@ -21,7 +21,7 @@ Let $(x,v)\in \Sin$, under the flow of \eqref{eq:magnetichamiltonian2} we know t
 
 We can say more, there exists a line $\ell$ through the center $a$ of the Larmor circle $C$ and the center $(1/2,1/2)$ of $\partial S$. The two circles are symmetric with respect to the reflection $T$ with respect to $\ell$. This means $Tx=y$, and $Tv = -w$. The following statement is more interesting.
 
-\begin{lemma}
+\begin{lemma}\label{lem:SoutToSin}
 The flow of \eqref{eq:magnetichamiltonian2} induces a well-defined map $P_\text{oi}:\Sout\to\Sin$.
 \end{lemma}
 \begin{proof}
@@ -42,39 +42,37 @@ Notice that the reasoning is independent of the radius of $S$, nor does it depen
 
 In \cite{Knauf_2017} a similar result is proved for a configuration of finitely many bumps. In that case a different method was used that did not rely on an infinite number of bumps, in ours the reasoning was simplified due to this.
 
-\subsection{Some simple periodic trajectories}
+With the Poincar\'e map we can study the stability of (quasi)-periodic trajectories of the system for a choice of parameters. In \cref{fig:periodicorbits} we provide some examples we constructed using analytic geometry. In \cref{subfig:periodicorbit1} we see a periodic trajectory and its corresponding orbit in the Poincar\'e section. In \cref{subfig:periodicorbit2} we shift the initial condition slightly and see that the orbit in \cref{subfig:periodicorbit1} displays stable behavior. We provide a proof using symbolic algebra in \hl{HERE}. The same can be said comparing \cref{subfig:periodicorbit3} and \cref{subfig:periodicorbit4}. On the other hand, in \hl{add plots with unstable periodic orbit} we have a periodic trajectory that does not seem to be stable.
 
-With the Poincar\'e map we can already study the stability of periodic trajectories of the system. We provide some simple examples in this section, and prove the (in)-stability of some. The examples were found by trial and error, and with some imagination. We will detect more complicated periodicity in the section where we introduce the Lempel-Ziv complexity. We present some periodic orbits in FIG, the parameters and initial conditions can be found in the TABLE
-
-
-
-The code written in \texttt{Python} utilizes the symbolic algebra system \texttt{Sympy} to define functions, compute derivatives, compose functions, and compute eigenvalues of a Jacobian symbolically. That way we avoid a considerable amount of computation by hand but still retain a high degree of precision when computing numerical values. For long enough periodic orbits, the computation time using symbolic algebra becomes unreasonable, so we require a different way to analyse stability. A common alternative is to compute Lyapunov exponents of the original system or of the Poincar\'e map. However, these approaches are prone to numerical instability and require significant preparation beforehand. We would like to analyze stability from the trajectory directly, and we attempt this via symbolic dynamics in the next section.
+Constructing periodic trajectories and judging their stability by checking numerically is a reliable approach, however it is limited, since we need a good guess to start with. Uncovering more elaborate (quasi)-periodic behavior in this manner becomes impractical, so we need a tool that can help us single out good candidates ahead of time. We discuss this in the next section.
 
 
-\color{red}
-With $B_r(q)\subset \mathbb R^2$ denote the closed ball of radius $r>0$ centered at $q\in\mathbb R^2$. Pick $S=\cup_{N\in\mathbb Z^2}B_{1/3}(N-1/2)$, that is, $S$ is the union of closed balls of radius $1/3$ centered at points of the form $(n-1/2,m-1/2)$ for $n,m\in\mathbb Z$.
+%The code written in \texttt{Python} utilizes the symbolic algebra system \texttt{Sympy} to define functions, compute derivatives, compose functions, and compute eigenvalues of a Jacobian symbolically. That way we avoid a considerable amount of computation by hand but still retain a high degree of precision when computing numerical values. For long enough periodic orbits, the computation time using symbolic algebra becomes unreasonable, so we require a different way to analyse stability. A common alternative is to compute Lyapunov exponents of the original system or of the Poincar\'e map. However, these approaches are prone to numerical instability and require significant preparation beforehand. We would like to analyze stability from the trajectory directly, and we attempt this via symbolic dynamics in the next section.
 
-The choice of radius $r=1/3$ is arbitrary, we fix it for convenience. Furthermore, we notice the speed of the particle is constant, since $\|X'(0)\|=Rb$, so again for simplicity we fix $\|X'(0)\|=1$. This also fixes the Larmor radius $R=1/b$. A different choice of $r\in (0,1/2)$ and $\|X'(0)\|\in(0,\infty)$ clearly gives rise to different dynamics, however we make the assumption that the dynamics will not differ \textit{qualitatively}, i.e., in any case we expect to find periodic orbits, chaotic behavior, and the methods we use for studying these are still valid.
 
-Hence, we study the influence of varying the parameter $b>0$ on the above defined system. What we see is four ranges of behavior:
-\begin{enumerate}
-\item For values $b\approx0$ we can approximate the dynamics as a perturbation of a system with no magnetic field at all,
-\item For a range of ``small'' values of $b$, the dynamics are similar to that of a uniform field in $\mathbb R^2$,
-\item there is an intermediate range where both stable and unstable periodic dynamics occur
-\item there exists a value $b_t$, such that all values $b>b_t$ give rise to unstable dynamics.
-\end{enumerate}
-
-We can use this to already find some simple periodic orbits. We describe one such orbit now.
-
-Let $\delta\in(0,1/3)$ and consider the initial condition $(x,p) = (0,1/2+delta,1,0)$, the trajectory can be seen in \cref{subfig:periodicorbit1}. We can compute that for the choice $b=1/\delta$, the trajectory will be a periodic orbit.
-
-Already, we see that periodic orbits exist for arbitrarily large $b$. It can be shown using Poincar\'e sections that this family of periodic orbits is unstable.
-
-Another family of periodic orbits are given for $\delta\in(-1/\sqrt{18},1/3)$, where the initial condition is $(x,p)=(0,1/2+\delta,1,0)$ and $b = 1/(\delta+\sqrt{1/9-\delta^2})$
-
-Another family of periodic orbits are given for $\delta\in(1/\sqrt{18},1/3)$, where the initial condition is $(x,p)=(0,1/2+\delta,1,0)$ and $b = 1/(\delta-\sqrt{1/9-\delta^2})$
-
-Lastly, we have a more complicated periodic orbit that forms an octagon for 
+%With $B_r(q)\subset \mathbb R^2$ denote the closed ball of radius $r>0$ centered at $q\in\mathbb R^2$. Pick $S=\cup_{N\in\mathbb Z^2}B_{1/3}(N-1/2)$, that is, $S$ is the union of closed balls of radius $1/3$ centered at points of the form $(n-1/2,m-1/2)$ for $n,m\in\mathbb Z$.
+%
+%The choice of radius $r=1/3$ is arbitrary, we fix it for convenience. Furthermore, we notice the speed of the particle is constant, since $\|X'(0)\|=Rb$, so again for simplicity we fix $\|X'(0)\|=1$. This also fixes the Larmor radius $R=1/b$. A different choice of $r\in (0,1/2)$ and $\|X'(0)\|\in(0,\infty)$ clearly gives rise to different dynamics, however we make the assumption that the dynamics will not differ \textit{qualitatively}, i.e., in any case we expect to find periodic orbits, chaotic behavior, and the methods we use for studying these are still valid.
+%
+%Hence, we study the influence of varying the parameter $b>0$ on the above defined system. What we see is four ranges of behavior:
+%\begin{enumerate}
+%\item For values $b\approx0$ we can approximate the dynamics as a perturbation of a system with no magnetic field at all,
+%\item For a range of ``small'' values of $b$, the dynamics are similar to that of a uniform field in $\mathbb R^2$,
+%\item there is an intermediate range where both stable and unstable periodic dynamics occur
+%\item there exists a value $b_t$, such that all values $b>b_t$ give rise to unstable dynamics.
+%\end{enumerate}
+%
+%We can use this to already find some simple periodic orbits. We describe one such orbit now.
+%
+%Let $\delta\in(0,1/3)$ and consider the initial condition $(x,p) = (0,1/2+delta,1,0)$, the trajectory can be seen in \cref{subfig:periodicorbit1}. We can compute that for the choice $b=1/\delta$, the trajectory will be a periodic orbit.
+%
+%Already, we see that periodic orbits exist for arbitrarily large $b$. It can be shown using Poincar\'e sections that this family of periodic orbits is unstable.
+%
+%Another family of periodic orbits are given for $\delta\in(-1/\sqrt{18},1/3)$, where the initial condition is $(x,p)=(0,1/2+\delta,1,0)$ and $b = 1/(\delta+\sqrt{1/9-\delta^2})$
+%
+%Another family of periodic orbits are given for $\delta\in(1/\sqrt{18},1/3)$, where the initial condition is $(x,p)=(0,1/2+\delta,1,0)$ and $b = 1/(\delta-\sqrt{1/9-\delta^2})$
+%
+%Lastly, we have a more complicated periodic orbit that forms an octagon for 
 
 
 \begin{figure}[!th]
@@ -106,5 +104,3 @@ Lastly, we have a more complicated periodic orbit that forms an octagon for
 \caption{Examples of periodic, quasiperiodic, and aperiodic trajectories for varying choices of parameters.}
 \label{fig:periodicorbits}
 \end{figure}
-
-\color{black}

@@ -13,31 +13,28 @@ H(q,p) = H^0(p) + \varepsilon H^1(q,p),
 \end{align*}
 where $1\gg\varepsilon>0$ is considered small, $H^0$ is the integrable part and $H^1$ is the perturbation. We assume that $H$ is $2\pi$-periodic in each component of $q$. What KAM theory ensures is that under the correct conditions, a ``large'' subset $\Omega_{\gamma,\tau}\subseteq\Omega$, $\gamma,\tau>0$ of invariant tori of $H^0(p)$ are preserved, though possibly deformed, under the perturbation $H^1$. The set $\Omega_{\gamma,\tau}$ is given by:
 \begin{align}\label{eq:smalldivisorcondition}
-\Omega_{\gamma,\tau} = \left\{ \omega\in\Omega :
-|\omega \cdot k| \ge \gamma|k|^{-\tau}, 0\neq k\in \mathbb Z^n \right\}.\\ \text{\color{red} make sure you understand the Cantor set construction on page 134\color{black}}
+\Omega_{\gamma,\tau} = \bigcap_{\substack{k\in\mathbb Z\\ k\neq 0}}\left\{ \omega\in\Omega :
+|\omega \cdot k| \ge \gamma|k|^{-\tau}\right\}.
 \end{align}
-The condition for $\Omega_{\gamma,\tau}$ is called the \textit{small divisor condition}. It can be shown that for $\tau>n-1$ almost all points in $\mathbb R^n$ satisfy such a condition for the right choice of $\gamma$, so we can find such points in $\Omega$ as well. In the statement of the theorem we will see that $\gamma$ cannot be varied and must be fixed, since it comes in as a constant in the bound on the size of the perturbation, so we consider the \textit{Cantor} set 
+The condition for $\Omega_{\gamma,\tau}$ is called the \textit{small divisor condition}. It can be shown for $\tau>n-1$ that for almost all $x\in\mathbb R^n$ there exists a $\gamma>0$ such that $x\in\Omega_{\gamma,\tau}$, so in particular, we can find $\gamma>0$ so that a point $\omega\in\Omega$ satisfies $x\in \Omega_{\gamma,\tau}$. We finally consider the \textit{Cantor} set 
 \begin{align*}
-\Omega_\gamma=\{\omega\in\Omega: d(\omega,\partial\Omega)\ge\gamma\}\cap\left(\bigcup_{\tau>n-1}\Omega_{\gamma,\tau}\right).
+\hat\Omega_{\gamma,\tau}= \Omega_{\gamma,\tau}\cap\{\omega\in\Omega: d(\omega,\partial\Omega)\ge\gamma\},
 \end{align*}
-
-We see $\Omega\backslash \bigcup_{\gamma>0}\Omega_\gamma$ is a set of measure zero, so the measure of $\Omega_\gamma$ becomes large for small $\gamma$ ,justifying the term ``large''. We can now give the KAM theorem as stated in \cite{poschel82}.
+that is, we remove points in $\Omega_{\gamma,\tau}$ that have distance less than $\gamma$ from the boundary of $\Omega$. It can be shown $\Omega\backslash \bigcup_{\gamma>0}\hat\Omega_{\gamma,\tau}$ is a set of measure zero, so the measure of $\Omega_\gamma$ becomes large for small $\gamma$ ,justifying the term ``large''. We can now give the KAM theorem as stated in \cite{poschel82}.
 
 \begin{theorem}\label{thm:KAM}
 Let the integrable Hamiltonian $H^0:\mathbb T^n\times I\to\mathbb R$ be real analytic and non-degenerate, such that the frequency map $\partial_p H^0:I\to\Omega$ is a diffeomorphism and let the perturbed Hamiltonian $H=H^0+\varepsilon H^1$ be of class $C^{\alpha\lambda+\lambda+\tau}$ with $\lambda>\tau+1>n$ and $\alpha>1$. Then there exists a positive $\gamma$-independent $\delta$ such that for $|\varepsilon|<\gamma^2\delta$ with $\gamma$ sufficiently small, there exists a diffeomorphism
 \begin{align*}
 \mathcal T: \mathbb T^n\times\Omega \to\mathbb T^n\times I,
 \end{align*} 
-which on $\mathbb T^n\times\Omega_\gamma$ transforms the equations of motion of $H$ into
+which on $\mathbb T^n\times\hat\Omega_{\gamma,\tau}$ transforms the equations of motion of $H$ into
 \begin{align*}
 \dot \theta=\omega,\qquad \dot\omega=0.
 \end{align*}
-The map $\mathcal T$ is of class $C^\alpha$ for non-integer $\alpha$ and close to the inverse of the frequency map; its Jacobian determinant is uniformly bounded from above and below.
-
-In addition, if $H$ is of class $C^{\beta\lambda+\lambda+\tau}$ with $\alpha\le\beta\le\infty$, then one can modify $\mathcal T$ outside $\mathbb T^n\times\Omega_\gamma$ so that $\mathcal T$ is of class $C^\beta$ for noninteger $\beta$.
+The map $\mathcal T$ is of class $C^\alpha$ for non-integer $\alpha$ and close to the inverse of the frequency map; its Jacobian determinant is uniformly bounded from above and below. In addition, if $H$ is of class $C^{\beta\lambda+\lambda+\tau}$ with $\alpha\le\beta\le\infty$, then one can modify $\mathcal T$ outside $\mathbb T^n\times\hat\Omega_{\gamma,\tau}$ so that $\mathcal T$ is of class $C^\beta$ for noninteger $\beta$.
 \end{theorem}
 
-So, for $\omega\in\Omega_\gamma$, we can parametrize an invariant torus via the map $\theta\mapsto\mathcal T(\theta,\omega)$. There are a few theorems in use now that are titled the \textit{KAM theorem}, and they differ mainly whether they discuss analytic or smooth perturbations. It is easier to find sources discussing the analytic versions, since they provide stronger results about the invariant torii. Having said this, we use the $C^r$ version because it is easier to construct smooth approximations of discontinuous functions as opposed to analytically approximating them.
+So, for $\omega\in\hat\Omega_{\gamma,\tau}$, we parametrize an invariant torus via the map $\theta\mapsto\mathcal T(\theta,\omega)$. There are a few theorems in use now that are titled the \textit{KAM theorem}, and they differ mainly whether they discuss analytic or smooth perturbations. It is easier to find sources discussing the analytic versions, since they provide stronger results about the invariant torii. Having said this, we use the $C^r$ version because it is easier to construct smooth approximations of discontinuous functions as opposed to analytically approximating them.
 
 \subsection{Approximating locally $L^1$ functions for KAM}
 
@@ -71,7 +68,7 @@ Some properties that the mollification $f_\varepsilon$ has are summarized here:
 \begin{theorem}\label{thm:mollification}
 Let $f\in L_{\text{loc}}^1(X)$. Then the mollification $f_\varepsilon$ has the following properties:
 \begin{enumerate}
-\item $f_\varepsilon\in C^\infty)(X_\varepsilon)$,
+\item $f_\varepsilon\in C^\infty(X_\varepsilon)$,
 \item $f_\varepsilon\to f$ almost everywhere as $\varepsilon\to0$,
 \item if $f$ is continuous on $X$, then $f_\varepsilon\to f$ as $\varepsilon\to0$ uniformly on compact subsebts of $X$,
 \item if $1\le p <\infty$ and $f\in L_{\text{loc}}^p(X)$, then $f_\varepsilon\to f$ as $\varepsilon\to 0$ in $L_{\text{loc}}^p(X)$
