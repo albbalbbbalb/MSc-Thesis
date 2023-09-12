@@ -1,6 +1,7 @@
 
-We begin by recalling Kolmogorov-Arnold-Moser (KAM) theory, state one of the main KAM theorems, and briefly outline the main points of the theory before delving into its application. We refer the reader to \cite{Knauf_2018} and \cite{Seri_2022} for a more detailed account. We strongly recommend \cite{poschel82} for reference, as it is the version of KAM we use here. 
+We begin by recalling Kolmogorov-Arnold-Moser (KAM) theory, state one of the main KAM theorems, and briefly outline the main points of the theory before delving into its application. We refer the reader to \cite{Knauf_2018} and \cite{Seri_2022} for a more detailed account. We strongly recommend \cite{poschel82} for reference, as it is the version of KAM we use here. What we will see is that for ``small'' values of $b$, our system \eqref{eq:magnetichamiltonian} can be viewed as a perturbation of at least two different Hamiltonian systems, which can explain certain behavior we find. We corroborate our reasoning with many numerical simulations.
 
+\subsection{Summary of KAM theory}
 KAM theory is a method for studying perturbations of integrable Hamiltonian systems. Its origins lie in Celestial and Hamiltonian mechanics, where it was used to study the orbits of planets. Hamiltonian mechanics is a strong tool for modeling and studying systems, however it is strongest for conservative systems. Naturally, we find in practice many non-conservative systems, or conservative ones that are too complicated in full, in which case a smaller subsystem is modeled and the rest is viewed as a perturbation. We are interested in the second scenario, we denote by $H^0(q,p)$ an integrable Hamiltonian and by $H^1(q,p,\varepsilon)$ a perturbation. 
 
 Focusing on the integrable case, it is known by the Liouville-Arnold theorem that there exist \textit{action-angle} coordinates so that $H^0:=H^0(p)$ can be expressed in terms of the action variable only. The equations of motion in action-angle coordinates are given by:
@@ -16,11 +17,11 @@ where $1\gg\varepsilon>0$ is considered small, $H^0$ is the integrable part and 
 \Omega_{\gamma,\tau} = \bigcap_{\substack{k\in\mathbb Z\\ k\neq 0}}\left\{ \omega\in\Omega :
 |\omega \cdot k| \ge \gamma|k|^{-\tau}\right\}.
 \end{align}
-The condition for $\Omega_{\gamma,\tau}$ is called the \textit{small divisor condition}. It can be shown for $\tau>n-1$ that for almost all $x\in\mathbb R^n$ there exists a $\gamma>0$ such that $x\in\Omega_{\gamma,\tau}$, so in particular, we can find $\gamma>0$ so that a point $\omega\in\Omega$ satisfies $x\in \Omega_{\gamma,\tau}$. We finally consider the \textit{Cantor} set 
+The condition for $\Omega_{\gamma,\tau}$ is called the \textit{small divisor condition}. It can be shown for $\tau>n-1$ that for almost all $x\in\mathbb R^n$ there exists a $\gamma>0$ such that $x\in\Omega_{\gamma,\tau}$, so in particular, we can find $\gamma>0$ so that a point $\omega\in\Omega$ satisfies $\omega\in \Omega_{\gamma,\tau}$. We finally consider the \textit{Cantor} set 
 \begin{align*}
 \hat\Omega_{\gamma,\tau}= \Omega_{\gamma,\tau}\cap\{\omega\in\Omega: d(\omega,\partial\Omega)\ge\gamma\},
 \end{align*}
-that is, we remove points in $\Omega_{\gamma,\tau}$ that have distance less than $\gamma$ from the boundary of $\Omega$. It can be shown $\Omega\backslash \bigcup_{\gamma>0}\hat\Omega_{\gamma,\tau}$ is a set of measure zero, so the measure of $\Omega_\gamma$ becomes large for small $\gamma$ ,justifying the term ``large''. We can now give the KAM theorem as stated in \cite{poschel82}.
+that is, we remove points in $\Omega_{\gamma,\tau}$ that have distance less than $\gamma$ from the boundary of $\Omega$. It can be shown $\Omega\backslash \bigcup_{\gamma>0}\hat\Omega_{\gamma,\tau}$ is a set of measure zero, so the measure of $\hat\Omega_{\gamma,\tau}$ becomes large for small $\gamma$ ,justifying the term ``large''. We can now give the KAM theorem as stated in \cite{poschel82}.
 
 \begin{theorem}\label{thm:KAM}
 Let the integrable Hamiltonian $H^0:\mathbb T^n\times I\to\mathbb R$ be real analytic and non-degenerate, such that the frequency map $\partial_p H^0:I\to\Omega$ is a diffeomorphism and let the perturbed Hamiltonian $H=H^0+\varepsilon H^1$ be of class $C^{\alpha\lambda+\lambda+\tau}$ with $\lambda>\tau+1>n$ and $\alpha>1$. Then there exists a positive $\gamma$-independent $\delta$ such that for $|\varepsilon|<\gamma^2\delta$ with $\gamma$ sufficiently small, there exists a diffeomorphism
@@ -34,11 +35,13 @@ which on $\mathbb T^n\times\hat\Omega_{\gamma,\tau}$ transforms the equations of
 The map $\mathcal T$ is of class $C^\alpha$ for non-integer $\alpha$ and close to the inverse of the frequency map; its Jacobian determinant is uniformly bounded from above and below. In addition, if $H$ is of class $C^{\beta\lambda+\lambda+\tau}$ with $\alpha\le\beta\le\infty$, then one can modify $\mathcal T$ outside $\mathbb T^n\times\hat\Omega_{\gamma,\tau}$ so that $\mathcal T$ is of class $C^\beta$ for noninteger $\beta$.
 \end{theorem}
 
-So, for $\omega\in\hat\Omega_{\gamma,\tau}$, we parametrize an invariant torus via the map $\theta\mapsto\mathcal T(\theta,\omega)$. There are a few theorems in use now that are titled the \textit{KAM theorem}, and they differ mainly whether they discuss analytic or smooth perturbations. It is easier to find sources discussing the analytic versions, since they provide stronger results about the invariant torii. Having said this, we use the $C^r$ version because it is easier to construct smooth approximations of discontinuous functions as opposed to analytically approximating them.
+So, for $\omega\in\hat\Omega_{\gamma,\tau}$, we parametrize an invariant torus via the map $\theta\mapsto\mathcal T(\theta,\omega)$. There are a few theorems in use now that are titled the \textit{KAM theorem}, and they differ mainly whether they discuss analytic or smooth perturbations. It is easier to find sources discussing the analytic versions, since they provide stronger results about the invariant torii. Having said this, we use the $C^r$ version because it is easier to construct smooth approximations of discontinuous functions as opposed to analytically approximating them. We bring smooth approximations into the mix, since \eqref{eq:magnetichamiltonian} alone is discontinuous.
 
-\subsection{Approximating locally $L^1$ functions for KAM}
+\subsection{Approximating locally $L^1$ functions}
 
-The Hamiltonian \eqref{eq:magnetichamiltonian2} we wish to study is discontinuous, which by itself is not suitable for the KAM theorem. We can, however, smoothly approximate the Hamiltonian by using \textit{mollifiers}. The \textit{standard mollifier} $\varphi:\mathbb R^n\to\mathbb R$ is the following function:
+The Hamiltonian \eqref{eq:magnetichamiltonian} we wish to study is discontinuous, which by itself is not suitable for the KAM theorem. We can, however, smoothly approximate the Hamiltonian by using \textit{mollifiers}. The KAM theorem then can be applied to the smoothed Hamiltonian, which of course means we are not directly studying \eqref{eq:magnetichamiltonian} but instead gaining an intuition for the true behavior.
+
+The \textit{standard mollifier} $\varphi:\mathbb R^n\to\mathbb R$ is the following function:
 \begin{align*}
 \varphi(x) = \left\{\begin{array}{ll}
 c\exp\left(\frac{1}{|x|^2-1}\right), & |x| <1\\
@@ -52,16 +55,19 @@ where $c>0$ is a scaling factor chosen so that the integral of $\varphi$ over $\
 \end{align*} 
 this function has the following properties:
 \begin{align*}
-\varphi_\varepsilon\in C_c^\infty(\mathbb R^n),\quad
-\varphi\ge 0,\quad
-\int_{\mathbb R^n}\varphi =1,\quad
+\varphi_\varepsilon&\in C_c^\infty(\mathbb R^n),\quad
+\varphi\ge 0,\\
+\int_{\mathbb R^n}&\varphi_\varepsilon =1,\quad
 \text{supp}(\varphi_\varepsilon)\subset B_\varepsilon(0)=\{x\in\mathbb R^n:|x|<\varepsilon\},
 \end{align*}
 that is, the function $\varphi_\varepsilon$ is smooth in $\mathbb R^n$ with compact support, it is positive, its integral is 1, and the support of $\varphi_\varepsilon$ is fully contained in the unit ball of radius $\varepsilon>0$ centered at the origin.
   
 Let $f\in L_{\text{loc}}^1(X)$ be a locally integrable function in $X \subseteq\mathbb R^n$. The \textit{mollification} of $f$ is defined as the convolution of $f$ with $\varphi_\varepsilon$, that is, $\varphi_\varepsilon*f:X_\varepsilon\to\mathbb R$ where $X_\varepsilon=\{x\in X: d(x,\partial X)>\varepsilon\}$. Explicitly,
 \begin{align*}
-f_\varepsilon(x) = \big(\varphi_\varepsilon * f\big)(x) = \int_X\varphi_\varepsilon(x-y)f(y)dy = \int_{B_\varepsilon(0)}\varphi_\varepsilon(y)f(x-y)dy,\quad x\in X_\varepsilon
+f_\varepsilon(x)
+  &= \big(\varphi_\varepsilon * f\big)(x)
+  = \int_X\varphi_\varepsilon(x-y)f(y)dy\\
+  &= \int_{B_\varepsilon(0)}\varphi_\varepsilon(y)f(x-y)dy,\quad x\in X_\varepsilon
 \end{align*}
 
 Some properties that the mollification $f_\varepsilon$ has are summarized here:
@@ -78,49 +84,44 @@ Let $f\in L_{\text{loc}}^1(X)$. Then the mollification $f_\varepsilon$ has the f
 The proof of this theorem can be found in Appendix C of \cite{Evans_1998}
 \end{proof}
 
-What we gain from \Cref{thm:mollification} is not only a smooth approximation of our discontinuous Hamiltonian but an approximation that can be made arbitrarily precise almost everywhere. Of course, the points which cannot be approximated accurately are concentrated at the boundary of each disk, where the discontinuities lie. Despite this, it is reasonable to assume that for sufficiently small values of $\varepsilon$, the flow of the equations of motion provided by the mollified Hamiltonian approximate very well the flow of the disconitinuous one.
+What we gain from \Cref{thm:mollification} is not only a smooth approximation of our discontinuous Hamiltonian but an approximation that can be made arbitrarily precise almost everywhere. Of course, the points which cannot be approximated accurately are concentrated at the boundary of each disk, where the discontinuities lie. Despite this, it is reasonable to assume that for sufficiently small values of $\varepsilon$, the flow of the equations of motion provided by the mollified Hamiltonian approximate the flow of the disconitinuous one very well.
+
+
+\subsection{Investigating small magnetic field strengths}
+
+In \cref{fig:weakcomparison} we numerically solve the system and observe some interesting relations. Each plot shows 5 trajectories varying $b=10^{-1},\dots,10^{-5}$. In \cref{subfig:weakcomparisonA} and \cref{subfig:weakcomparisonB} the init.~cond.~and params.~are the same $X\approx(0.38,0.81)$ and $V\approx(0,1)$, and $R=1/3$, only the duration of the simulation is longer in \cref{subfig:weakcomparisonB}. In \cref{subfig:weakcomparisonC}, $V$ is the same, $X \approx(0.44,0.65)$ and $R=1/6$. 
+
+First, we see in each figure the trajectory for $b=0.1$ appears as a smear near the origin, this is likely because $b$ is large enough for the deflection in each disk to be significant. We note, however, in later sections we also find circle-like quasiperiodic trajectories for significantly larger values of $b$. The difference here is that these circular arcs seem to be generic, while for larger $b$ the circle-like trajectories are more scarce and each has a smaller region of stability.
+
+For the other values of $b$, we see the trajectories follow a circular arc, and for smaller $b$ the radius of the respective circular arc is larger. In the limit $b\to0$, the trajectories will straighten out, since the magnetic field vanishes. These two observations motivates the use of KAM, specifically, considering \eqref{eq:magnetichamiltonian} as a perturbation of either free motion or of a uniform magnetic field in the plane.
+
 
 \begin{figure}[!th]
 \centering
 \hfill
 \begin{subfigure}[t]{0.30\textwidth}
 \centering
-\includegraphics[width=\textwidth, trim={4cm 0 4cm 0}, clip]{fig1.png}
+\includegraphics[width=\textwidth, trim={4cm 0cm 4cm 0cm}, clip]{weak_field_comparison_1.png}
 \caption{}
 \label{subfig:weakcomparisonA}
 \end{subfigure}
 \hfill
 \begin{subfigure}[t]{0.30\textwidth}
 \centering
-\includegraphics[width=\textwidth, trim={4cm 0 4cm 0}, clip]{fig2.png}
+\includegraphics[width=\textwidth, trim={4cm 0 4cm 0}, clip]{weak_field_comparison_2.png}
 \caption{}
 \label{subfig:weakcomparisonB}
 \end{subfigure}
 \hfill
 \begin{subfigure}[t]{0.30\textwidth}
 \centering
-\includegraphics[width=\textwidth, trim={4cm 0 4cm 0}, clip]{fig3.png}
+\includegraphics[width=\textwidth, trim={4cm 0 4cm 0}, clip]{weak_field_comparison_3.png}
 \caption{}
 \label{subfig:weakcomparisonC}
 \end{subfigure}
 \hfill
-\caption{Each plot shows 5 trajectories for varying $b=10^{-1},\dots,10^{-5}$. In \cref{subfig:weakcomparisonA} and \cref{subfig:weakcomparisonB} the init.~cond.~and params.~are the same $X\approx(0.38,0.81)$ and $V\approx(0,1)$, and $R=1/3$, only the duration of the simulation differs. In \cref{subfig:weakcomparisonC}, $V$ is the same, $X \approx(0.44,0.65)$ and $R=1/6$.}
+\caption{Trajectories for various choices of $R$ and small $b$.}
 \label{fig:weakcomparison}
 \end{figure}
 
-In \cref{fig:weakcomparison} we numerically solve the system and observe some interesting relations. First, we see in each figure the trajectory for $b=0.1$ appears as a smear near the origin, this is likely because $b$ is large enough for the deflection in each disk to be significant. For the other values of $b$, we see the trajectories follow a circular arc, and for smaller $b$ the radius of the respective circular arc is larger. In the limit $b\to0$, the trajectories will straighten out, since the magnetic field vanishes. This motivates the use of KAM, specifically, considering the Hamiltonian $H_0(q,p)=\|p\|^2/2$ and introducing the bumps as a perturbation when $b\approx0$.
-
-Alternatively, since the trajectories follow circular arcs, this suggests we can consider the motion as a perturbation of a different Hamiltonian. Specifically, we conjecture that we should start with a non-zero magnetic Hamiltonian with vector potential $A=(-\hat bq_2,0,0)$ in the plane with strength $\hat b$ and perturb it to the case with the bumps of strength $b$.
-
-We first reason heuristically to see that this idea is valid. Comparing the trajectories for $b=0.01$ and $ 0.001$ in \cref{subfig:weakcomparisonA} and \ref{subfig:weakcomparisonB}, we see that the radius of the trajectory is $\approx250$ and $\approx2500$, respectively. If we assume this is the value of the Larmor radius $\hat L$ in each case, then we see $\hat L\varpropto 1/b$ or $\hat b\varpropto b$. Now, comparing the trajectories for $b=0.01$ in \cref{subfig:weakcomparisonA} and \ref{subfig:weakcomparisonC}, we see halving the radius $R$ of the magnetic bumps roughly quadruples the radius $\hat L$ from 250 to 1000, that is, $\hat L\varpropto 1/R^2$, and the strength then relates as $\hat b \varpropto R^2b$. The task then is to determine $C\in\mathbb R$ such that $\hat b = CR^2b$.
-
-We can reason another way. W.l.o.g.~consider $[0,1]^2$, we would like the uniform field with strength $\hat b$ to have the similar deflection of trajectories as the field with strength $b$ in the disk with radius $R$. How much a trajectory is deflected depends on the flux of the field, so if we equate the fluxes $\Phi_{B}=\Phi_{\hat B}$, we can compute the required strength $\hat b$ for $\hat B$. Recall, that the magnetic flux is given by:
-\begin{align*}
-\Phi_B = \iint_{S}\mathbf B\cdot dA = \iint_{S}\nabla\times \mathbf A\cdot dA,
-\end{align*}
-so it is the integral of the vector field $\mathbf B$ through the surface $S$. Computing the flux for a uniform field in $S$, we get
-\begin{align*}
-\Phi_{\mathbf B} = \iint_{S}\mathbf B\cdot dA
-  = \iint_{S}(0,0,b)\cdot (0,0,1) dA = b A(S), 
-\end{align*}
-where $A(S)$ denotes the area of the surface. In our case, $\Phi_{\hat{\mathbf B}}=\Phi_{\mathbf B}$ implies $\hat b = \pi R^2 b$, which is about what we expected. We collect and process some data that corroborates this finding in a later section.
+We note that the free motion perturbation idea seems to be less robust than the uniform field idea. For any small $b>0$, we can expect that after a sufficiently long time $t$ the accumulated deflection is substantial, for example, compare the trajectory for $b=0.0001$ in \cref{subfig:weakcomparisonA} and \cref{subfig:weakcomparisonB}. Having said that, it is not visible in the figure but what appear as circular trajectories in fact do not close either, the displacement is simply very small, but this is precisely what motivated the previous comment: the circles stay circular for longer.

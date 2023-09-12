@@ -13,7 +13,7 @@
 %\fancyfoot[C]{}
 %\fancyfoot[RO, LE] {\thepage}
 
-\title{Magnetic billiards on a torus with a uniform field in a disk}
+\title{Complexity of Magnetic Biliards in a Torus}
 \author{Albert \v{S}ilvans, s3400166}
 
 \usepackage{amsthm}
@@ -39,7 +39,7 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{url}
-
+\usepackage{multirow}
 
 \newcommand{\D}{\text{d}}
 \newcommand{\sech}{\text{sech}}
@@ -103,34 +103,33 @@
 \section{Introduction}
 
 \input{introduction.tex}
-\input{linear_motion_and_rotations_on_the_torus.tex}
-\input{uniform_magnetic_field.tex}
-\input{interplay_of_linear_motion_and_magnetic_fields.tex}
+\newpage
+%\input{linear_motion_and_rotations_on_the_torus.tex}
+%\input{uniform_magnetic_field.tex}
+%\input{interplay_of_linear_motion_and_magnetic_fields.tex}
+%\section{Basic properties}
+%\input{basic_properties.tex}
 
-
-\section{Weak magnetic field and KAM theory}
+\section{Weak magnetic fields and KAM theory}
 
 \input{KAM_theory.tex}
 \input{perturbations_of_linear_motion.tex}
 \input{perturbation_of_a_constant_field.tex}
+\newpage
 
-
-\section{A step towards symbolic dynamics}
+\section{Complexity and symbolic dynamics}
 
 \input{poincare.tex}
-
-\section{Lempel-Ziv and Symbolic dynamics}
-
 \input{lempel-ziv_complexity.tex}
+\newpage
 
 \section{Levy Flights}
-
+\newpage
 
 \section{Conclusion}
-
 \input{further_questions.tex}
-
 \newpage
+
 \bibliographystyle{alpha}
 \bibliography{references.bib}
 

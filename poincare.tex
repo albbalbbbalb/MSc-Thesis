@@ -1,5 +1,5 @@
 
-Previously, we discussed the dynamics of \eqref{eq:magnetichamiltonian2} from the perspective of perturbation theory. Now, we attempt to extract some meaningful symbolic dynamics. We specify \textit{meaningful} dynamics because we fail to do so via the standard approach: finding a markov partition and a conjugation to the shift map, instead we consider a reasonable map into a symbol space and judge the dynamics via the Lempel-Ziv complexity measure. What we find is two complementary methods to characterize the dynamics.
+Previously, we discussed the dynamics of \eqref{eq:magnetichamiltonian} from the perspective of perturbation theory. Now, we attempt to extract some meaningful symbolic dynamics. We specify \textit{meaningful} dynamics because we fail to do so via the standard approach: finding a markov partition and a conjugation to the shift map, instead we consider a reasonable map into a symbol space and judge the dynamics via the Lempel-Ziv complexity measure. What we find is two complementary methods to characterize the dynamics.
 
 \subsection{Constructing a Poincar\'e section}
 
@@ -13,19 +13,19 @@ To simplify the notation, we consider motion in the torus $\mathbb T=[0,1]^2$, t
 so $\Sin$ is the part of phase space that lies on the boundary $\partial S$ and has velocity vector pointing into $S$, while $\Sout$ points outward. Notice that we exclude velocities that are tangential to $\partial S$. We show now that both $\Sin$ and $\Sout$ are poincare sections of the full system.
 
 \begin{lemma}
-The flow of \eqref{eq:magnetichamiltonian2} induces a well-defined map $P_\text{io}:\Sin\to\Sout$.
+The flow of \eqref{eq:magnetichamiltonian} induces a well-defined map $P_\text{io}:\Sin\to\Sout$.
 \end{lemma}
 \begin{proof}
-Let $(x,v)\in \Sin$, under the flow of \eqref{eq:magnetichamiltonian2} we know the Larmor circle $C$ with initial conditions $(x,v)$ intersects $\partial S$ in $x$ and that at $x$ the circles are not tangential. Two circles intersecting at a point non-tangentially must intersect at a second point, so there exists $x\neq y\in\partial S\cap C$. By the flow of \eqref{eq:magnetichamiltonian2} there must also exist a velocity $w\in\mathbb R^2$ such that $w\cdot(x-1/2)>0$, that is $(y,w)\in\Sout$. Hence we have $P_\text{io}(x,v) = (y,w)$. 
+Let $(x,v)\in \Sin$, under the flow of \eqref{eq:magnetichamiltonian} we know the Larmor circle $C$ with initial conditions $(x,v)$ intersects $\partial S$ in $x$ and that at $x$ the circles are not tangential. Two circles intersecting at a point non-tangentially must intersect at a second point, so there exists $x\neq y\in\partial S\cap C$. By the flow of \eqref{eq:magnetichamiltonian} there must also exist a velocity $w\in\mathbb R^2$ such that $w\cdot(x-1/2)>0$, that is $(y,w)\in\Sout$. Hence we have $P_\text{io}(x,v) = (y,w)$. 
 \end{proof}
 
 We can say more, there exists a line $\ell$ through the center $a$ of the Larmor circle $C$ and the center $(1/2,1/2)$ of $\partial S$. The two circles are symmetric with respect to the reflection $T$ with respect to $\ell$. This means $Tx=y$, and $Tv = -w$. The following statement is more interesting.
 
 \begin{lemma}\label{lem:SoutToSin}
-The flow of \eqref{eq:magnetichamiltonian2} induces a well-defined map $P_\text{oi}:\Sout\to\Sin$.
+The flow of \eqref{eq:magnetichamiltonian} induces a well-defined map $P_\text{oi}:\Sout\to\Sin$.
 \end{lemma}
 \begin{proof}
-Let $(x,v)\in\Sout$, then under the flow of \eqref{eq:magnetichamiltonian2} we see linear motion. Ignoring the presence of $S$, we see that depending on $v$, the trajectory is either periodic or is dense in $\mathbb T$.
+Let $(x,v)\in\Sout$, then under the flow of \eqref{eq:magnetichamiltonian} we see linear motion. Ignoring the presence of $S$, we see that depending on $v$, the trajectory is either periodic or is dense in $\mathbb T$.
 
 Focusing on the first case, in finite time we return to the point $x$. Since the trajectory is a line $\ell$ interesecting $\partial S$ transversally, there must be another point of intersection $x\neq y\in\partial S\cap\ell$. The velocity at $y$ must also be $v$, so due to the geometry of a circle, $(y,v)\in\Sin$. For the second case, we can pick $\varepsilon>0$ such that all points in $U=(\partial S\cap B_\varepsilon(x))\times\{v\}\subset \Sout$ are transversal to $\partial S$. Let $(y,v)\in U$, since the flow is dense for the velocity $v$, ignoring $S$, we know that in finite time the point $(x,v)$ comes to $(y,v)$. The rest of this case follows the same way as previously. 
 
@@ -79,28 +79,120 @@ Constructing periodic trajectories and judging their stability by checking numer
 \centering
 \begin{subfigure}{0.49\textwidth}
 \centering
-\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig5.png}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{stable_square_with_poincare.png}
 \caption{say smth albert}
 \label{subfig:periodicorbit1}
 \end{subfigure}
 %
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig4.png}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{perturbed_stable_square_with_poincare.png}
 \caption{say smth albert}
 \label{subfig:periodicorbit2}
 \end{subfigure}
 %
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig6.png}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{stable_octagon_with_poincare.png}
 \caption{a.}
 \label{subfig:periodicorbit3}
 \end{subfigure}
 %
 \begin{subfigure}{0.49\textwidth}
-\includegraphics[width=\textwidth, trim={0 5.5cm 0 5.5cm}, clip]{fig7.png}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{perturbed_stable_octagon_with_poincare.png}
 \caption{.}
 \label{subfig:periodicorbit4}
 \end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{star_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit5}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{doubled_star_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit6}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{sophisticated_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit7}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{distinguished_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit8}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{unstable_square_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit9}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{unstable_loopy_square_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit10}
+\end{subfigure}
 \caption{Examples of periodic, quasiperiodic, and aperiodic trajectories for varying choices of parameters.}
 \label{fig:periodicorbits}
+\end{figure}
+
+
+\begin{figure}[!th]
+\ContinuedFloat
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{lopsided_octagon_with_poincare.png}
+\caption{say smth albert}
+\label{subfig:periodicorbit11}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{strange_square_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit12}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{walker_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit13}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{big_walker_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit14}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{12gon_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit15}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{egg_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit16}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{big_square_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit17}
+\end{subfigure}
+%
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth, trim={0 1cm 0 1cm}, clip]{big_circle_with_poincare.png}
+\caption{.}
+\label{subfig:periodicorbit18}
+\end{subfigure}
+\caption{Examples of periodic, quasiperiodic, and aperiodic trajectories for varying choices of parameters.}
+\label{fig:periodicorbits1}
 \end{figure}

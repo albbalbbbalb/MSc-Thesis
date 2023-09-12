@@ -160,29 +160,47 @@ def orbit(X, R, b, n=1000, maxIt=1000, tol=1e-15):
 
 def plotCircles(ax, R, xydir, **kwargs):
 
+    from matplotlib.patches import Circle
+
     shifts = np.array([ np.sum(xy,axis=0) for xy in xydir])
     shifts = np.add.accumulate(shifts,0)
     shifts = np.unique(shifts, axis=0)
-
-    ax.set_xticks(shifts[:,0]+1/2, [ "$"+str(i)+"$" for i in shifts[:,0]+1/2], **kwargs)
-    ax.set_yticks(shifts[:,1]+1/2, [ "$"+str(i)+"$" for i in shifts[:,1]+1/2], **kwargs)
-
-    t = np.linspace(0,2*np.pi,100)
-    x = R*np.cos(t)+1/2
-    y = R*np.sin(t)+1/2
-
-    
+ 
     for a,b in shifts:
-        ax.plot(x+a,y+b, "k:")
+        ax.add_patch(Circle((a+1/2,b+1/2), R, color="black", linestyle=":", fill=False))
 
-    out = ax.plot(x,y,"k:")
+    out = ax.add_patch(Circle((1/2,1/2), R, color="black", linestyle=":", fill=False))
 
     return out
 
 
 
 
-def plotTrajectory(ax, XOut, XIn, xydir):
+def plotTrajectory(ax, XOut, XIn, xydir, **kwargs):
+
+    XO = XOut.copy()
+    XI = XIn.copy()
+
+    shifts = np.array([ np.sum(xy,axis=0) for xy in xydir])
+    shifts = np.add.accumulate(shifts,0)
+    
+    XI[:,:2] += shifts
+    XO[:,:2] += np.vstack([np.zeros(2), shifts])
+
+    n = XI.shape[0] + XO.shape[0]
+    Xs = np.zeros((n,4))
+    Xs[::2] = XO
+    Xs[1::2] = XI
+
+    out = ax.plot(Xs[:,0], Xs[:,1], "b", **kwargs)
+
+    
+    return out
+
+
+
+
+def prettyPlotTrajectory(ax, XOut, XIn, xydir):
 
     XO = XOut.copy()
     XI = XIn.copy()
@@ -282,24 +300,6 @@ def circleFit(X):
 
 
 
-# def mag_orbit(X,R,b,n=1000,tol=1e-15):
-#     
-#     m = 0
-#     xypos = np.zeros((n,2))
-#     xydir = np.zeros(n)
-#     newX = X.copy()
-#     
-#     for m in range(1,n):
-#         circ = circle_and_line(newX, R)
-#         if circ[0] != np.Inf:
-#             newX = SInToSOut(circ,b)
-#         newX = line_and_4lines(newX,tol)
-#         rounding, xydir[m] = next_sqr(newX,tol)
-#         next_xypos = xypos[m-1,:] + rounding
-#         xypos[m,:] = next_xypos
-#         newX = np.block([newX[:2]-rounding, newX[2:]])
-#     return xypos, xydir
-
 
 def LZ76(ss):
     """
@@ -333,7 +333,6 @@ def LZ76(ss):
       c  -- integer
     """
 
-    ss = ss.tolist()
     i, k, l = 0, 1, 1
     c, k_max = 1, 1
     n = len(ss)
