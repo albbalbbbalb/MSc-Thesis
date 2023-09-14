@@ -1,0 +1,16 @@
+In this section we consider the dynamics of \eqref{eq:magnetichamiltonian} for $b\gg 0$, that is, in the case where KAM and perturbative methods are not readily applicable. We approach the system in an exploratory way: we look for (quasi)-periodic orbits, consider their stability, and see where stability is missing.
+
+To this end, we prove the existence of a Poincar\'e section, later we induce ``coarse'' symbolic dynamics and apply the Lempel-Ziv complexity to make sense of the dynamics. What we find is rich dynamics and a visual method of analysis well suited for similar problems.
+
+The phase space of our system is $\mathbb R^2\times\mathbb R^2$, however we can reduce the phase space to a Poincar\'e section as follows:
+\begin{proposition}\label{prop:poincaresurface}
+Let $S$ be the union of discs of radius $R$ centered at $\mathbb Z^2+1/2$. The sets $\Sin$ and $\Sout$ defined as:
+\begin{align}
+\label{def:poincaresectionIN}
+\Sin &= \bigcup_{x\in\partial S} \{x\} \times \{v\in\mathbb R^2 : v\cdot (x-1/2) < 0\},\\
+\label{def:poincaresectionOUT}
+\Sout &= \bigcup_{x\in\partial S} \{x\} \times \{v\in\mathbb R^2 : v\cdot (x-1/2) > 0\},
+\end{align}
+are Poincar\'e sections for the system \eqref{eq:magnetichamiltonian}.
+\end{proposition}
+We prove this later. This helps visualize long term behavior, since the magnitude of the velocity of a trajectory is constant. Furthermore, we can pass the system to the torus, which reduces $S$ to one disc. So, when plotting we only need two dimensions: one to parametrize $\partial S$ and another for the velocity.

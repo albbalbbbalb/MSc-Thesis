@@ -1,0 +1,29 @@
+%\subsection{Constructing a Poincar\'e section}
+
+To construct the Poincar\'e section, we will use well known results about rotations on the torus. Parametrize the torus $\mathbb T$ with angles $\theta,\varphi\in[0,1]$, a particle in free motion on $\mathbb T$ follows the trajectory $r(t)=x_0+vt$ where $x_0\in\mathbb T$ is the initial condition and $v\in\mathbb R^2$ is the velocity. If the angle of $v$ with respect to the axis $\theta$ is rational, then $r(t)$ is periodic, otherwise $r(t)$ is dense in $\mathbb T$.
+
+\begin{lemma}\label{lem:SoutToSin}
+The flow of \eqref{eq:magnetichamiltonian} induces a well-defined map $P_\text{oi}:\Sout\to\Sin$.
+\end{lemma}
+\begin{proof}
+Let $(x,v)\in \Sout$, at this point the solution of \eqref{eq:magnetichamiltonian} continues with free motion $r(t)=x+vt$. If the angle of $v$ is rational, then there exists some time $t_2$ at which $r(t_2)=x$, and $(r(t_2),v)\in \Sout$. Since at time $t_2$ the trajectory intersects $\partial S$ transversally, there must exist $t_1<t_2$ such that $(r(t_1),v)\in \Sin$. Since the trajectory intersects $\Sin$ at least once, there must exist a unique $t_0\le t_1$ such that $(r(t_0),v)\in \Sin$.
+
+If instead the angle of $v$ is irrational, consider an open neighborhood $U\subseteq \partial S$ of $x$ such that $U\times\{v\}\subseteq \Sout$. This can be done by taking a sufficiently small interval in $\partial S$ around $x$. Since $r(t)$ is dense in $\mathbb T$, there exists a time $t_1$ such that $r(t_1)\in U$. By the same reasoning as in the previous case, there exists a unique time $t_0$ such that $(r(t_0),v)\in \Sin$.
+
+Define $P_{\text oi}(x,v) = (r(t_0), v)$, which is well-defined.
+\end{proof}
+
+\begin{lemma}\label{lem:SinToSout}
+The flow of \eqref{eq:magnetichamiltonian} induces a well-defined map $P_\text{io}:\Sin\to\Sout$.
+\end{lemma}
+\begin{proof}
+Let $(x,v)\in \Sin$, under the flow of \eqref{eq:magnetichamiltonian} the trajectory $r(t)$ follows some Larmor circle $C$. We know $x\in C\cap \partial S$, so since $(x,v)$ is transversal to $\partial S$, there must exist a point $x_1\in C\cap\partial S$ with $x_1\neq x$. Hence, also there must exist a time $t_0$ at which the trajectory intersects $\Sout$. Define $P_{\text io}(x,v) = (r(t_0), r'(t_0))$.
+\end{proof}
+
+\begin{proof}[Proof of \cref{prop:poincaresurface}]
+The map $P_{\text i} = P_{\text oi}\circ P_{\text io}$ is a return map for $\Sin$. Likewise, $P_{\text o} = P_{\text io}\circ P_{\text oi}$ is a return map for $\Sout$.
+\end{proof}
+
+The proof of \cref{lem:SoutToSin} does not depend on the shape of the magnetic region. However, \hl{it is not clear what needs to be changed to make } \cref{lem:SinToSout} work for arbitrary regions.
+
+In \cite{Knauf_2017} a similar result is proved for a configuration of finitely many bumps. In that case a different method was used that did not rely on an infinite number of bumps, in ours the reasoning was simplified due to this.

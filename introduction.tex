@@ -32,34 +32,39 @@ We see an example trajectory in \cref{fig:sensitive_trajectory} which demonstrat
 So far, we see that the motion is not trivial, and warrants study. What is not yet evident from \cref{fig:sensitive_trajectory} is the influence of the parameters $R$ and $b$ on the general behavior of the system. This is what we aim to better understand by the end of the paper. 
 
 
-We outline how we study this system. We focus on varying $b$, and identify three modes for some $b_1,b_2\in\mathbb R$ with $b_1<b_2$. \hl{Continue this later.}
+We outline how we study this system. We focus on varying $b$, and identify three modes. For some $b_1,b_2\in\mathbb R$ with $0<b_1\ll1<b_2$ \hl{we can also just suggest some values, given our observations},
+\begin{enumerate}
+\item If $0<b<b_1$, the field strength is low. We can use KAM theory to make sense of quasi-periodicity at these strengths. We find two approaches using KAM.
+\item If $b_1<b<b_2$, the field has moderate strength and there is quasi-periodicity of varying complexity. We study this mode, and the next using symbolic dynamics and the Lempel-Ziv complexity measure.
+\item If $b_2<b$, the field is strong, and though periodic solutions can be found, we cannot find stable ones.
+\end{enumerate}
 
 
 
-\begin{table}[!ht]
-\centering
-\renewcommand\arraystretch{2}
-\begin{tabular}{>{\raggedright}p{0.2\linewidth}
-				>{\raggedright}p{0.2\linewidth}
-				>{\raggedright}p{0.2\linewidth}
-				>{\raggedright\arraybackslash}p{0.2\linewidth}
-                }
-\toprule
- & $b<b_1$ & $b_1<b<b_2$ & $b_2<b$ \\
-\midrule
-Uniform perturbation in a disk 
-  & \multirow{2}*{Usual } 
-  & test cases (difficult in general)
-  & Perturbation of Sinai Billiards (maybe) \\
-Arbitrary perturbations
-  & 
-  & use paper by Donnay-Liverani
-  & Hard?\\
-\bottomrule
-\end{tabular}
-\caption{What it is that we want to do}
-\label{tab:outline}
-\end{table}
+%\begin{table}[!ht]
+%\centering
+%\renewcommand\arraystretch{2}
+%\begin{tabular}{>{\raggedright}p{0.2\linewidth}
+%				>{\raggedright}p{0.2\linewidth}
+%				>{\raggedright}p{0.2\linewidth}
+%				>{\raggedright\arraybackslash}p{0.2\linewidth}
+%                }
+%\toprule
+% & $b<b_1$ & $b_1<b<b_2$ & $b_2<b$ \\
+%\midrule
+%Uniform perturbation in a disk 
+%  & \multirow{2}*{Usual } 
+%  & test cases (difficult in general)
+%  & Perturbation of Sinai Billiards (maybe) \\
+%Arbitrary perturbations
+%  & 
+%  & use paper by Donnay-Liverani
+%  & Hard?\\
+%\bottomrule
+%\end{tabular}
+%\caption{What it is that we want to do}
+%\label{tab:outline}
+%\end{table}
 
 
 

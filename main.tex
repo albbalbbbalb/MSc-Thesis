@@ -13,7 +13,7 @@
 %\fancyfoot[C]{}
 %\fancyfoot[RO, LE] {\thepage}
 
-\title{Complexity of Magnetic Biliards in a Torus}
+\title{Complex Dynamics of Magnetic Billiards in a Torus}
 \author{Albert \v{S}ilvans, s3400166}
 
 \usepackage{amsthm}
@@ -97,37 +97,42 @@
 \newpage
 \tableofcontents
 \listoffigures
-\listoftables
 \newpage
 
 \section{Introduction}
 
 \input{introduction.tex}
+
 \newpage
-%\input{linear_motion_and_rotations_on_the_torus.tex}
-%\input{uniform_magnetic_field.tex}
-%\input{interplay_of_linear_motion_and_magnetic_fields.tex}
-%\section{Basic properties}
-%\input{basic_properties.tex}
 
 \section{Weak magnetic fields and KAM theory}
 
 \input{KAM_theory.tex}
 \input{perturbations_of_linear_motion.tex}
 \input{perturbation_of_a_constant_field.tex}
+
 \newpage
 
 \section{Complexity and symbolic dynamics}
+\input{intro_poincare.tex}
 
+\subsection{First impressions and lots of quasiperiodicity}
 \input{poincare.tex}
+
+\subsection{Constructing a Poincar\'e section}
+\input{constructing_poincare.tex}
+
 \input{lempel-ziv_complexity.tex}
+
 \newpage
 
 \section{Levy Flights}
+
 \newpage
 
 \section{Conclusion}
 \input{further_questions.tex}
+
 \newpage
 
 \bibliographystyle{alpha}
